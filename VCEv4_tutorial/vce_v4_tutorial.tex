@@ -61,8 +61,8 @@
 \newpage
 
 \section{Introduction}\label{sec:intro}
-VerCors is a platform for the specification, analysis, verification and validation of the GCM- 
-based applications architecture and behavior. It contains a set of tools including VCE v.4. VCE v.4 is a graphical designer for the GCM architecture and the Components behavior specification. It is distributed as a set of Eclipse plugins.
+VerCors is a platform for the specification, analysis, verification and validation of the GCM-
+based applications architecture and behavior. It contains a set of tools including VCE v.4. VCE v.4 is a graphical designer for the GCM architecture and Components behavior specification. It is distributed as a set of Eclipse plugins.
 
 This guide explains the basic functionality of VCE v.4. 
 It provides step by step instructions for creating a simple example of a Component model using the VCE editors, including all facets of this model: classes and interfaces, types, architecture, and behaviors. It also explains how to validate the static semantics properties of the Component models, how to produce (partial) executable code in GCM/ProActive and how to produce models that can be verified be CADP\footnote{http://cadp/} model-checker.
@@ -94,7 +94,7 @@ A module translating graphical models into input for CADP model-checker.
 
 \subsection{Properties view}
 
-You will often need to edit some parameters of your model in \textbf{Properties} view of Eclipse. If you do not see it in your workspace, in order to open it you should:
+You will often need to edit some parameters of your model in Eclipse \textbf{Properties} view. If you do not see it in your workspace, in order to open it you should:
 
 \begin{enumerate}
 \item
@@ -127,7 +127,7 @@ We will illustrate the use of graphical editors with an example described in the
 
 \subsection{Example Overview}
 
-A figure below illustrates the example. This is a very simple VCE Component diagram containing one primitive component \textbf{Prim1} with one server and one client GCM interface (\textbf{S1} and \textbf{C1}). Each GCM interface is connected to a UML interface (\textbf{Interface1} and \textbf{Interface2} respectively). Interface1 has an operation \textbf{sumUp} that can be served by the component, Interface2 has the list of the operations that can be called by the component. A UML class \textbf{Class1} is attached to the component. It has one method implementing the operation of the server interface (\textbf{sumUp()}), one attribute \textbf{last\_sum} and two methods \textbf{get\_last\_sum()} and \textbf{set\_last\_sum()} to access the value of the attribute. The behavior of the sumUp  method is illustrated on a UML State Machine sumUp. The default value of attribute \textbf{last\_sum} is given in a green box and is equal to 0.
+A figure below illustrates the example. This is a very simple VCE Component diagram containing one primitive component \textbf{Prim1} with one server and one client GCM interface (\textbf{S1} and \textbf{C1}). Each GCM interface is connected to a UML interface (\textbf{Interface1} and \textbf{Interface2} correspondingly). Interface1 has an operation \textbf{sumUp} that can be served by the component, Interface2 has the list of the operations that can be called by the component. A UML class \textbf{Class1} is attached to the component. It has one method implementing the operation of the server interface (\textbf{sumUp()}), one attribute \textbf{last\_sum} and two methods \textbf{get\_last\_sum()} and \textbf{set\_last\_sum()} to access the value of the attribute. The behavior of the sumUp  method is illustrated on a UML State Machine sumUp. The default value of attribute \textbf{last\_sum} is given in a green box and is equal to~0.
 
 %\begin{figure}
      \centerline{
@@ -142,7 +142,7 @@ Prim1 implements the following business logic. Method sumUp can be called on the
 \subsection{VCE project creation}
 \begin{enumerate}
 \item
-Go to \textbf{Sirius} perspective (see a figure below). You can change the perspective using a button in top-right corner of your Obeo (Eclpse) or in the top-bar menu.
+Go to \textbf{Sirius} perspective (see a figure below). You can change the perspective using a button in top-right corner of your Obeo (Eclipse) or in the top-bar menu.
 %\begin{figure}
      \centerline{
      \includegraphics[width=8cm]{draws/sirius-persp.png}
@@ -152,6 +152,7 @@ Go to \textbf{Sirius} perspective (see a figure below). You can change the persp
 % \end{figure}
 \item
 Create a new VCE project: right-click in the Model Explorer and select \textbf{New$\rightarrow$ Other...} (see a figure below). Then, select \textbf{VCE Wizard$\rightarrow$ VCE Project} and hit \textbf{Next}.
+
  %\begin{figure}
     \centerline{
      \includegraphics[width=7cm]{draws/new-other.png}
@@ -159,6 +160,7 @@ Create a new VCE project: right-click in the Model Explorer and select \textbf{N
      \label{fig:new-other}
      }
  %\end{figure}
+ 
  %\begin{figure}
      \centerline{
      \includegraphics[width=7cm]{draws/vce-proj.png}
@@ -166,6 +168,7 @@ Create a new VCE project: right-click in the Model Explorer and select \textbf{N
      \label{fig:vce-proj}
      }
  %\end{figure}
+ 
 \item
 Give a name to the project and press on \textbf{Finish};
 \item
@@ -182,6 +185,7 @@ Check all the viewpoints and press Ok.
 \end{enumerate}
 
 As a result, a new VCE project is created. Its structure is illustrated at the figure below.
+
  %\begin{figure}
      \centerline{
      \includegraphics[width=10cm]{draws/vce-proj.png}
@@ -189,24 +193,25 @@ As a result, a new VCE project is created. Its structure is illustrated at the f
      \label{fig:vce-proj}
      }
  %\end{figure}
+ 
 A VCE project has the following elements:
 \begin{itemize}
 \item
-default.uml – a UML model;
+default.uml -- a UML model;
 \item
-Dashboard - can be used to create diagrams;
+Dashboard -- can be used to create diagrams;
 \item
-default.vce – a VCE model;
+default.vce -- a VCE model;
 \item
-VCE diagram - a diagram illustrating elements of default.vce;
+VCE diagram -- a diagram illustrating elements of default.vce;
 \item
-default.vcetypes – a model containing the types specification;
+default.vcetypes -- a model containing the types specification;
 \item
-VceTypes diagram - a diagram illustrating elements of default.vcetypes.
+VceTypes diagram -- a diagram illustrating elements of default.vcetypes.
 \end{itemize}
 
 \subsection{Using an existing VCE Project }
-When working in collaborative environments, you will often have to share projects with your colleagues. You may also have to download an existing project, usually in the form of an archive file, from existing sources. Importing such a project in your VCE workspace works as for any other Eclipse project:
+When working in collaborative environments, you will often have to share projects with your colleagues. You may also have to download an existing project. Importing such a project in your VCE workspace works as for any other Eclipse project:
 \begin{enumerate}
 \item
 import the archive file (e.g. zip file), and save it somewhere on your file system;
@@ -215,23 +220,23 @@ from the \textbf{File} menu, select \textbf{Import};
 \item
 select \textbf{General $\rightarrow$ Existing project in workspace} then hit Next;
 \item
-in the \textbf{Select archive file} item, Browse to find your archive file, hit Open;
+browse to find your project, hit Ok;
 \item
 then hit Finish.
 \end{enumerate}
 
 The corresponding project will appear in the Model explorer panel, with a structure similar to the structure created by the VCE wizard, though of course there will usually many be more elements in there.
 
-\subsection{Building the component Architecture in VCE component diagrams}\label{sec:comp-diagr}
-This section describes how to edit model in VCE components diagrams.
+\subsection{Building the component Architecture in VCE Component diagrams}\label{sec:comp-diagr}
+This section describes how to edit GCM-based application architecture in VCE Component diagrams.
 \begin{enumerate}
 \item
-Normally, Components diagram should be created in a VCE project by default. In order to create a new diagram right-click on \textbf{Architecture} and chose \textbf{New Representation $\rightarrow$ new Components Diagram}.
+Normally, a Component diagram should be created in a VCE project by default. In order to create a new diagram right-click on \textbf{Architecture} and chose \textbf{New Representation $\rightarrow$ new Component Diagram}.
 \item
 You can edit it using tools on the Palette. You can also use a toolbar on the top of a diagram editor. You can change the properties of your model elements using Properties View.
 \end{enumerate}
 
-For our first example pick-up the tool called \textbf{Primitive} and draw a primitive component. Then, add to the component two interfaces using \textbf{Server} and \textbf{Client} tools. You can edit the names either directly on the diagram of in the Properties view. The resulting diagram is illustrated at the figure below.
+For our first example pick the tool called \textbf{Primitive} and draw a primitive component. Then, add to the component two interfaces using \textbf{Server} and \textbf{Client} tools. You can edit the names either directly on the diagram of in the Properties view. The resulting diagram is illustrated at the figure below.
 
      \centerline{
      \includegraphics[width=6cm]{draws/prim.png}
@@ -239,20 +244,20 @@ For our first example pick-up the tool called \textbf{Primitive} and draw a prim
      \label{fig:vce-proj}
      }
 \subsection{Types specification}
-This section describes how to specify the types. VCE has 4 predefined type: VoidType, BoolType, IntType and NatType. However, one can construct its own types: Enumerations, Records and specify integer intervals to abstract the data domains. Our example has one two integer intervals: \textbf{argType = 0..2} and \textbf{resType = 0..4}.
+This section describes how to specify types. VCE has 4 predefined type: VoidType, BoolType, IntType and NatType. However, one can construct its own types: enumerations, records and specify integer intervals to abstract the data domains. Our example has two integer intervals: \textbf{argType = 0..2} and \textbf{resType = 0..4}.
 
 In order to specify the types, you need to:
 
 \begin{enumerate}
 \item
-Open an existing VceTypes diagram or create a new one. In order to create a new diagram right-click on \textbf{VCE Types Container} in Model explorer and chose \textbf{new Representation $\rightarrow$ new Types Diagram}.
+Open an existing VceTypes diagram or create a new one. In order to create a new diagram right-click on \textbf{VCE Types Container} in Model explorer and choose \textbf{new Representation $\rightarrow$ new Types Diagram}.
 \item
 You can edit it using tools on the Palette. 
 \end{enumerate}
 
 \textbf{Note: }in the current version of VCE most of the types features can be edited in \textbf{Properties} view but not directly.
 
-For our first example pick-up the tool called \textbf{Intervals Container} and draw a a container where you will specify the intervals. Then, using \textbf{Int Interval} tool add two intervals. Use Properties view to set their names, lower and upper bounds. The result is illustrated below.
+For our first example pick the tool called \textbf{Intervals Container} and draw a container where you will specify the intervals. Then, using \textbf{Int Interval} tool add two intervals. Use Properties view to set their names, lower and upper bounds. The result is illustrated below.
 
      \centerline{
      \includegraphics[width=4cm]{draws/types.png}
@@ -261,9 +266,9 @@ For our first example pick-up the tool called \textbf{Intervals Container} and d
      }
 
 \subsection{UML Classes and Interfaces}\label{sec:uml-classes}
-The UML Classes, Interfaces and Operations that will be used to specify the GCM interfaces and the primitive component implementation class must be described at UML Class diagram. In order to create it, right-click on \textbf{$<$Model$>$} in the Model explorer and select \textbf{New Representation $\rightarrow$ Class diagram}. The new diagram will be created and opened automatically. Another way is to doube-click on \textbf{Dashboard} and there one can find Class diagram. 
+The UML Classes, Interfaces and Operations that will be used to specify GCM interfaces and primitive component implementation class must be described at UML Class diagram. In order to create it, right-click on \textbf{$<$Model$>$} in the Model explorer and select \textbf{New Representation $\rightarrow$ Class diagram}. The new diagram will be created and opened automatically. Another way is to double-click on \textbf{Dashboard} and there one can find Class diagram. 
 
-[Hint]: choose meaningful, but reasonably short names. Long names make graphical diagrams difficult to manage] 
+[Hint: choose meaningful, but reasonably short names. Long names make graphical diagrams difficult to manage]
 
 A figure below illustrates Class diagram of our example. 
 
@@ -274,11 +279,11 @@ A figure below illustrates Class diagram of our example.
      }
 
 It has two UML Interfaces: \textbf{Interface1} and \textbf{Interface2}, and one UML Class \textbf{Class1}. In order to create them, \textbf{Interface} (resp. \textbf{Class}) tools are used.
-The tool \textbf{Operation} is used in order to add an Operation to a Class or an Interface (pick-up the tool and click on the Class or Interface where you want to add the Operation). You can modify the Operation in its Properties view. The name can be set in \textbf{General} tab.  The specification of the arguments and return type is a little bit more tricky. In order to modify them, you need to:
+The tool \textbf{Operation} is used in order to add an Operation to a Class or an Interface (pick-up the tool and click on the bottom part of a the Class or an Interface where you want to add the Operation). You can modify the Operation in its Properties view. The name can be set in \textbf{General} tab.  The specification of the arguments and return type is a little bit more tricky. In order to modify them, you need to:
 
 \begin{enumerate}
 \item
-Go to the Parameters tab of the Operation Properties view.
+Go to the Parameters tab of an Operation Properties view.
 \item
 Click on the \textbf{green plus} button in the top-right corner of the Properties view; this will open a window to create a parameter as illustrated on the figure below.
 
@@ -289,7 +294,7 @@ Click on the \textbf{green plus} button in the top-right corner of the Propertie
      }
      
 \item
-The window includes fields for specification of the name, type and direction of the parameter. You parameter can be either an argument of an operation, or its return type. Enter the name if you are specifying an argument; select the direction: \textit{in} for the arguments or \textit{return} for the return type. You should also select the parameter type among the ones declared in the VceTypes model. In order to specify the type, click on \textbf{green plus} button next to the field Type, go to \textbf{All Resources} tab and select the needed VceType from your .vcetypes model. See an example below.
+The window includes fields for specification of the name, type and direction of the parameter. You parameter can be either an argument of an operation, or its return type. Enter the name if you are specifying an argument; select the direction: \textit{in} for the arguments or \textit{return} for the return type. You should also select the parameter type among the ones declared in the VceTypes model. In order to specify type, click on \textbf{green plus} button next to the field Type, go to \textbf{All Resources} tab and select the needed VceType from your .vcetypes model. See an example below.
 
      \centerline{
      \includegraphics[width=11cm]{draws/param-type.png}
@@ -297,7 +302,7 @@ The window includes fields for specification of the name, type and direction of 
      \label{fig:vce-proj}
      }
 
-The example of \textbf{x} argument of \textbf{sumUp} operation is given on the figure below.
+An example of \textbf{x} argument of \textbf{sumUp} operation is given on the figure below.
 
      \centerline{
      \includegraphics[width=12cm]{draws/param.png}
@@ -309,28 +314,28 @@ The example of \textbf{x} argument of \textbf{sumUp} operation is given on the f
 
 An attribute (or  property) of a class can be specified using a tool \textbf{Property}. Among the properties of an attribute the most important ones are its name, type and default value.
 
-\subsection{Types of UML Class Operations}
-We should distinguish three types of UML Class Operations:
+\subsection{UML Operations}
+We should distinguish three kinds of UML Class Operations:
 \begin{itemize}
 \item
 \textbf{Server operations}. These are the operations that will be accessed from outside of a component. They implement the behavior of server interfaces operations. In order to establish the relation between a server operation of a class and the implemented method of an interface you need to do the following. (1) go to the Properties view of your class operation and open \textbf{Semantic} tab. (2) in the field \textbf{Redefined operation} select the implemented operation of an interface.
 \item
 \textbf{Local operations}. These are class operations that are used for local computations and are not accessible from outside of the component.
 \item
-\textbf{Get and set operations}. This is a special kind of local operations that are used inside the component to get or set the value of its attributes. One get and one set operation should be manually declared for \textit{every attribute of a Class}. The signature of a get operation is \textsf{get\_attrName():attrType}; the signature of a set operation is \textsf{set\_attrName(value:attrType)}.
+\textbf{Get and set operations}. This is a special kind of local operations that are used inside a component to get or set value of its attributes. One get and one set operation should be manually declared for \textit{every attribute of a Class}. The signature of a get operation is \textsf{get\_attrName():attrType}; the signature of a set operation is \textsf{set\_attrName(value:attrType)}.
 \end{itemize}
 
 \subsection{Attach a UML Interface to a GCM Interface}
-In our example, a UML Interface S1 is attached to a GCM Interface Interface1 and Interface2 is attached to C1. Which means that operations of Interface1 can be called on S1 and operations of Interface2 can be called from C1. In order to attach a UML Interface to a GCM Interface you need to:
+In our example, a UML Interface Interface1 is attached to a GCM Interface S1 and Interface2 is attached to C1. Which means that operations of Interface1 can be called on S1 and operations of Interface2 can be called from C1. In order to attach a UML Interface to a GCM Interface you need to:
 \begin{enumerate}
 \item
 Open the VCE Components Diagram.
 \item
 Right-click on the GCM interface to which you want to attach a UML Interface (S1 or C1 in our example).
 \item
-Select \textit{Attach UML Interface} option.
+Select \textbf{Attach UML Interface} option.
 \item
-Select the required UML interface from the given list (Interface1 of Interface2 in our example)
+Select the required UML interface from the given list (Interface1 or Interface2 in our example)
 \end{enumerate}
 
 In the case of our example if you specify everything correctly, you should get the diagram illustrated below.
@@ -342,7 +347,7 @@ In the case of our example if you specify everything correctly, you should get t
      }
      
 \subsection{Attach a UML Class to a GCM Component}
-UML classes illustrate the lists of the operations that can be processed by the GCM primitive components and the list of possessed attributes. In our example, Class1 contains the methods of a component Prim1. In order to specify the relation between a primitive and its implementation class, right-click on the primitive component and select \textit{Attach UML Class} option. Then, select the required class from the given list. The result is illustrated on the figure below.
+UML classes illustrate the lists of the operations that can be processed by GCM primitive components and the lists of possessed attributes. In our example, Class1 contains the methods of a component Prim1. In order to specify the relation between a primitive and its implementation class, right-click on the primitive component and select \textbf{Attach UML Class} option. Then, select the required class from the given list. The result is illustrated on the figure below.
 
      \centerline{
      \includegraphics[width=14cm]{draws/prim-class.png}
@@ -355,16 +360,16 @@ A UML class attached to a primitive component defines the list of the component'
 
 \begin{enumerate}
 \item
-Open VCE Components Diagram.
+Open VCE Component Diagram.
 \item 
-Pick-up \textbf{Attributes specification} tool and add a box for attributes specification to the primitive component.
+Pick \textbf{Attributes specification} tool and add a box for attributes specification to the primitive component.
 \item
 Use tool \textbf{Attribute value} to add attributes that have specific default value to the attributes specification box. 
 \item
 You can set the name and the value of an attribute in Properties view. \textbf{Note:} the name of the attribute should strictly correspond to the one on a Class diagram.
 \end{enumerate}
 
-The example of the resulting diagram is given on the figure below.
+An example of the resulting diagram is given on the figure below.
 
      \centerline{
      \includegraphics[width=14cm]{draws/prim-attr.png}
@@ -387,7 +392,7 @@ Open a .uml file (UML model) in a standard EMF editor and go to the UML Class wh
      }
 
 \item 
-Add a region to the State Machine in a similar way.
+Add a region to the State Machine in a similar way. Right-click on the created state machine and select \textbf{New Region $\rightarrow$ Region}.
 \item
 Save the model. Now you can create a diagram of your State Machine.
 \item
@@ -402,8 +407,8 @@ Right-click on the created State Machine in Model Explorer and select \textbf{Ne
 
 \textbf{Note! }Set/get methods should NOT have State Machines attached. Their implementation is default in the current version of VerCors.
 
-\subsection{Edit the Local variables of a State Machine }
-If you want to use local variables on your State Machine, you should declare them in a specific section on a State Machine Diagram called \textbf{Local variables}. You should add one box for the local variables declaration to you state machine diagram using a tool \textbf{VDCreation}. Then, you can add local variables to the box using \textbf{Variable} tool. You should set the names and types of variables in the Properties view. Figure below illustrates local variables of our example.
+\subsection{Edit Local variables of a State Machine }
+If you want to use local variables on your State Machine, you should declare them in a specific section on a State Machine Diagram called \textbf{Local variables}. You should add one box for the local variables declaration to you state machine diagram using a tool \textbf{VDCreation}. Then, you can add local variables to the box using \textbf{Variable} tool. To add a variable click on the tool and then click on bottom part of the box for variables. You should set the names and types of variables in the Properties view. Figure below illustrates local variables of our example.
 
      \centerline{
      \includegraphics[width=3cm]{draws/loc-var.png}
@@ -420,7 +425,7 @@ You can use Palette of the State Machine Diagrams to add transitions and states.
      \label{fig:vce-proj}
      }
      
-The behavior of the methods if specified on the state machines transitions labels. In order to edit a label you need click on it once in order to select it. Then, you can click on it second time to edit it. From a state machine you have access to the local methods of the class owning the state machine , to the methods of client interfaces and to the local variables of the state machine. The attributes of the class. The labels text should correspond to the grammar given below.
+The behavior of is specified on state machine transition labels. In order to edit a label you need to click on it once in order to select it. Then, you can click on it second time to edit it. From a state machine you have access to the local methods of the class owning the state machine , to the methods of client interfaces and to the local variables of the state machine. The attributes of the class can be accessed only through get and set methods. The labels text should correspond to the grammar given below.
 
 \begin{grammar}
 
@@ -462,7 +467,7 @@ The final version of sumUp state machine of our example is given on the figure b
      }
 
 \section{Diagram Validation}
-Before using the diagrams, and in particular before generating ADL files, it is mandatory to check the structural coherency of the semantics. In order to do this open a VCE Components Diagram and select \textbf{Diagram $\rightarrow$ Validate} in the menu. 
+Before using the diagrams, and in particular before generating ADL files, it is mandatory to check the structural coherency of the semantics. In order to do this open a VCE Component Diagram and select \textbf{Diagram $\rightarrow$ Validate} in the menu. 
 
 The elements of the diagram which did not pass the validation should be marked with red signs. You will also see the validation errors/warnings description in the Problems view, and in the Model explorer.
 
@@ -502,9 +507,9 @@ Each GCM interface should have a reference to a UML interface.
 Once a component diagram has been checked valid, it is possible to generate automatically some of the files necessary for building a GCM/ProActive executable application. More precisely the generated files are:
 \begin{itemize}
 \item
-one ADL file, in XML format respecting the ADL DTD "classpath://org/objectweb/proactive/core/component/adl/xml/proactive.dtd". It represents the application component architecture (components, interfaces, bindings), and the link with the interface and content Java classes;
+one ADL file, in XML format respecting the ADL DTD\footnote{classpath://org/objectweb/proactive/core/component/adl/xml/proactive.dtd}. It represents an application component architecture (components, interfaces, bindings),
 \item
-one Java interface file for each UML interface in the application;
+one Java interface for each UML interface in the application;
 \item
 one Java class per UML class specified on Class diagram;
 \item
@@ -517,9 +522,31 @@ a Java enumeration State used for methods implementation
 
 VerCors partially generates executable code of class operations. For those operations that have State Machines attached it translate State Machines into Java code. It also generates the code of set/get methods to access attributes of the Java classes.
 
+In order to generate code you need to:
+\begin{enumerate}
+\item
+Right-click on .vce file of your project. Select \textbf{Export...}. 
+\item
+Select \textbf{VCE Export $\rightarrow$ ADL Export}. This will open a wizard.
+\item
+Select all the models of your project that should participate in the generation (i.e. .vce, .uml, .vcetypes). Then, hit Next. An example is given below.
+
+     \centerline{
+     \includegraphics[width=12cm]{draws/code-gen.png}
+    % \caption{VCE Project Structure}
+     \label{fig:vce-proj}
+     }
+     
+\item
+Give the name to the .fractal file that will be generated and to the package of the generated Java classes. \textbf{Note! } those names are mandatory and must be different from each other!
+\item
+Hit Next. 
+
+\end{enumerate}
+
 \section{Generation of input for CADP}
 
-The graphically specified models are translated by VerCors into low-level models encoding the behavior of a GCM applications. PNets and pLTS are used to encode the behavior as described here\footnote{https://hal.inria.fr/hal-00761073}.
+Graphically specified models are translated by VerCors into low-level models encoding the behavior of a GCM applications. PNets and pLTS are used to encode the behavior as described here\footnote{https://hal.inria.fr/hal-00761073}.
 
 In order to assist model-checking of the specified models, VerCors generates the following files:
 \begin{itemize}
@@ -540,7 +567,7 @@ To generate a pNet of a composite you need to:
 \item
 Right-click on the representation of the Composite component on VCE Components Diagram and select \textbf{Generate pNet $\rightarrow$ Generate pNet}. This will open the wizard where you can step-by-step specify the parameters of the verified system.
 \item
-Select the State Machine of the environment scenario.
+Select the State Machine of the environment scenario. This state machine should not be attached to any operation and should be stored in the root (Model) of .uml model.
 \item
 Specify the queue size of the root component as well as its sub-components.
 \item
