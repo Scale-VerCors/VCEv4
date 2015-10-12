@@ -1,0 +1,152 @@
+const Max_Proxy:nat is 3
+type IntType is 0..0
+type BoolType is 0..1
+type NatType is nat
+type IntInterval is 1..4
+type FutureType is 0..2
+type StepInterval is 0..2
+process Comp2_message
+[Call_message: in StepInterval#IntInterval,
+Call_get_isActive: none,
+Call_set_left: out IntInterval,
+Q_message: out StepInterval#IntInterval,
+R_message: none,
+Call_set_isActive: out BoolType,
+Q_IAmNotTheLeader: out IntInterval,
+Call_get_max: none,
+Call_get_cnum: none,
+Get_Proxy_requestKey: none,
+Get_Value_requestKey: out FutureType,
+Q_IAmTheLeader: out IntInterval,
+R_get_isActive: in BoolType,
+Call_get_left: none,
+R_get_left: in IntInterval,
+R_get_cnum: in IntInterval,
+New_requestKey: in FutureType,
+Q_requestKey: out FutureType,
+Call_encrypt: out IntInterval,
+R_Get_ValuerequestKey: in IntInterval,
+R_encrypt: none,
+Call_set_max: out IntInterval,
+R_get_max: in IntInterval]
+is
+states s0,s23,s3,s1,s9,s4,s8,s35,s37,s2,s30,s13,s36,s34,s11,s10,s7,s27,s38,s33,s24,s17,s26,s20,s21,s29,s5,s6,s12,s22,s18,s32,s14,s28,s19,s39,s31,s25,s15,s16
+var val:IntInterval, step:StepInterval, max:IntInterval, left:IntInterval, isActive:BoolType, cnum:IntInterval, p_1:FutureType, key:IntInterval
+from s0
+	Call_message?step, val; to s1
+from s1
+	Call_get_isActive; to s21
+from s2
+	if step = 1 then
+	to s3
+	
+	elsif step = 2 then
+	to s22
+    else to s0
+	end
+from s3
+	if val > max or val < max then
+	to s24
+	
+	elsif val = max then
+	to s25
+    else to s0
+	end
+from s4
+	Call_set_left!val; to s7
+from s5
+	if left > val and left > max then
+	to s32
+	
+	elsif left <= val or left <= max then
+	to s33
+    else to s0
+	end
+from s6
+	Q_message!1, left; to s7
+from s7
+	R_message; to s0
+from s8
+	if isActive = 1 then
+	to s35
+	
+	elsif isActive = 0 then
+	to s37
+    else to s0
+	end
+from s9
+	Call_set_isActive!0; to s7
+from s10
+	Q_IAmNotTheLeader!cnum; to s7
+from s11
+	if step = 1 or step = 2 then
+	to s8
+	
+	elsif step = 0 then
+	to s12
+    else to s0
+	end
+from s12
+	if isActive = 1 then
+	to s7
+	
+	elsif isActive = 0 then
+	to s38
+    else to s0
+	end
+from s13
+	Q_message!0, val; to s14
+from s14
+	Call_get_max; to s39
+from s15
+	Q_message!1, max; to s7
+from s16
+	Call_get_cnum; to s34
+from s17
+	Get_Proxy_requestKey; to s27
+from s18
+	Get_Value_requestKey!p_1; to s30
+from s19
+	to s20
+from s20
+	Q_IAmTheLeader!cnum; to s18
+from s21
+	R_get_isActive?isActive; to s11
+from s22
+	Call_get_left; to s23
+from s23
+	R_get_left?left; to s5
+from s24
+	Q_message!2, val; to s4
+from s25
+	Call_get_cnum; to s26
+from s26
+	R_get_cnum?cnum; to s17
+from s27
+	New_requestKey?p_1; to s28
+from s28
+	Q_requestKey!p_1; to s19
+from s29
+	Call_encrypt!key; to s31
+from s30
+	R_Get_ValuerequestKey?key; to s29
+from s31
+	R_encrypt; to s9
+from s32
+	Call_set_max!left; to s6
+from s33
+	Call_set_isActive!0; to s16
+from s34
+	R_get_cnum?cnum; to s10
+from s35
+	Call_get_max; to s36
+from s36
+	R_get_max?max; to s2
+from s37
+	Q_message!step, val; to s7
+from s38
+	Call_set_isActive!1; to s13
+from s39
+	R_get_max?max; to s15
+
+Comp2_message

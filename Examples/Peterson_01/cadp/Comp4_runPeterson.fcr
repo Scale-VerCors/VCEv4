@@ -1,0 +1,21 @@
+const Max_Proxy:nat is 3
+type IntType is 0..0
+type BoolType is 0..1
+type NatType is nat
+type IntInterval is 1..4
+type StepInterval is 0..2
+process Comp4_runPeterson
+[Call_runPeterson: none,
+Q_message: out StepInterval#IntInterval,
+R_runPeterson: none]
+is
+states s0,s1,s2
+
+from s0
+	Call_runPeterson; to s1
+from s1
+	Q_message!0, 1; to s2
+from s2
+	R_runPeterson; to s0
+
+Comp4_runPeterson

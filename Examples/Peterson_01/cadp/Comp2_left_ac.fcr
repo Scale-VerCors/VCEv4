@@ -1,0 +1,22 @@
+const Max_Proxy:nat is 3
+type IntType is 0..0
+type BoolType is 0..1
+type NatType is nat
+type IntInterval is 1..4
+process Comp2_left_ac
+[Call_set_left: in IntInterval,
+Call_get_left: none,
+R_get_left: out IntInterval]
+is
+states s0,s1
+var value:IntInterval, left:IntInterval := 1
+from s0
+	select 
+	Call_set_left?value; left:=value; to s0
+	[]
+	Call_get_left; to s1
+	end
+from s1
+	R_get_left!left; to s0
+
+Comp2_left_ac
