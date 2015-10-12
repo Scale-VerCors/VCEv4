@@ -17,10 +17,15 @@ In order to run the project, run main(..) method of src/Main.java with the follo
 After the components are created and runPeterson() method of Application is invoked, the following output will be printed to the console:
 
 (1) The leader is not: 3
+
 (2) The leader is not: 4
+
 (3) The leader is not: 2
+
 (4) The key was requested
+
 (5) The leader is: 1
+
 (6) The key will be returned
 
 The messages are printed by KeyStorage and Monitor components. KeyStorage prints (5) when requestKey() is invoked and (6) just before the key is returned. Monitor prints (1-3) and (5) when IamNotTheLeader() and IamTheLeader() operations are called correspondingly. We can see that Monitor receives IamTheLeader() method invocation after the key was requested but before the key is returned by KeyStorage. This demonstrates that indeed the leader is not blocked if is does not need the result of requestKey() since the leader can still invoke IamTheLeader() operation.
