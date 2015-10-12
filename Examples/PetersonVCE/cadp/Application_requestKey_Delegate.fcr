@@ -1,0 +1,23 @@
+const Max_Proxy:nat is 3
+type IntType is 0..0
+type BoolType is 0..1
+type NatType is nat
+type FutureType is 0..2
+process Application_requestKey_Delegate
+[Call_requestKey: in FutureType,
+Get_Proxy_requestKey: out FutureType,
+New_requestKey: in FutureType,
+Q_requestKey: out FutureType]
+is
+states s0,s3,s2,s1
+var f:FutureType, p:FutureType
+from s0
+	Call_requestKey?f; to s1
+from s1
+	Get_Proxy_requestKey!f; to s2
+from s2
+	New_requestKey?p; to s3
+from s3
+	Q_requestKey!p; to s0
+
+Application_requestKey_Delegate

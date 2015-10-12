@@ -1,0 +1,16 @@
+const Max_Proxy:nat is 3
+type IntType is 0..0
+type BoolType is 0..1
+type NatType is nat
+process Scenario
+[Call_Scenario: none,
+Q_runPeterson: none]
+is
+states s0,s2,s1
+
+from s0
+	Call_Scenario; to s1
+from s1
+	Q_runPeterson; to s2
+
+Scenario

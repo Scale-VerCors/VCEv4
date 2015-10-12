@@ -1,0 +1,56 @@
+-- Synch vectors for the assembly of <Comp2_Queue,Comp2_Body, Comp2_message(), Comp2_encrypt(key), Comp2_isActive_ac(), Comp2_left_ac(), Comp2_cnum_ac(), Comp2_max_ac(), Comp2_requestKey_Proxy_Manager(px0), Comp2_requestKey_Proxy[px0]>
+-- with the following input specification:
+-- px0:0..2 -- IntType
+-- cxval0:1..4 -- IntInterval
+-- <Comp2_Queue,Comp2_Body, Comp2_message(), Comp2_encrypt(key), Comp2_isActive_ac(), Comp2_left_ac(), Comp2_cnum_ac(), Comp2_max_ac(), Comp2_requestKey_Proxy_Manager(px0), Comp2_requestKey_Proxy[px0]>
+gate par using
+
+"Q_MESSAGE" * _ * _ * _ * _ * _ * _ * _ * _ * _ * _ * _ -> "QUEUE_MESSAGE",
+"SERVE_MESSAGE" * "SERVE_MESSAGE" * _ * _ * _ * _ * _ * _ * _ * _ * _ * _ -> "SERVE_MESSAGE",
+_ * "CALL_MESSAGE" * "CALL_MESSAGE" * _ * _ * _ * _ * _ * _ * _ * _ * _ -> "CALL_MESSAGE",
+_ * "R_MESSAGE" * "R_MESSAGE" * _ * _ * _ * _ * _ * _ * _ * _ * _ -> "R_MESSAGE",
+_ * _ * "GET_PROXY_REQUESTKEY" * _ * _ * _ * _ * _ * "GET_PROXY_REQUESTKEY" * _ * _ * _ -> "GET_PROXY_REQUESTKEY",
+_ * _ * "NEW_REQUESTKEY_0" * _ * _ * _ * _ * _ * "NEW_REQUESTKEY_0" * _ * _ * "NEW_REQUESTKEY" -> "NEW_REQUESTKEY_0",
+_ * _ * "NEW_REQUESTKEY_1" * _ * _ * _ * _ * _ * "NEW_REQUESTKEY_1" * _ * "NEW_REQUESTKEY" * _ -> "NEW_REQUESTKEY_1",
+_ * _ * "NEW_REQUESTKEY_2" * _ * _ * _ * _ * _ * "NEW_REQUESTKEY_2" * "NEW_REQUESTKEY" * _ * _ -> "NEW_REQUESTKEY_2",
+_ * _ * "Q_REQUESTKEY" * _ * _ * _ * _ * _ * _ * _ * _ * _ -> "Q_REQUESTKEY",
+_ * _ * "GET_VALUE_REQUESTKEY_0" * _ * _ * _ * _ * _ * _ * _ * _ * "GET_VALUE_REQUESTKEY" -> "GET_VALUE_REQUESTKEY_0",
+_ * _ * "GET_VALUE_REQUESTKEY_1" * _ * _ * _ * _ * _ * _ * _ * "GET_VALUE_REQUESTKEY" * _ -> "GET_VALUE_REQUESTKEY_1",
+_ * _ * "GET_VALUE_REQUESTKEY_2" * _ * _ * _ * _ * _ * _ * "GET_VALUE_REQUESTKEY" * _ * _ -> "GET_VALUE_REQUESTKEY_2",
+_ * _ * "R_GET_VALUEREQUESTKEY" * _ * _ * _ * _ * _ * _ * _ * _ * "R_GET_VALUEREQUESTKEY" -> "R_GET_VALUEREQUESTKEY",
+_ * _ * "R_GET_VALUEREQUESTKEY" * _ * _ * _ * _ * _ * _ * _ * "R_GET_VALUEREQUESTKEY" * _ -> "R_GET_VALUEREQUESTKEY",
+_ * _ * "R_GET_VALUEREQUESTKEY" * _ * _ * _ * _ * _ * _ * "R_GET_VALUEREQUESTKEY" * _ * _ -> "R_GET_VALUEREQUESTKEY",
+_ * _ * "Q_IAMTHELEADER" * _ * _ * _ * _ * _ * _ * _ * _ * _ -> "Q_IAMTHELEADER",
+_ * _ * "Q_IAMNOTTHELEADER" * _ * _ * _ * _ * _ * _ * _ * _ * _ -> "Q_IAMNOTTHELEADER",
+_ * _ * "Q_MESSAGE" * _ * _ * _ * _ * _ * _ * _ * _ * _ -> "Q_MESSAGE",
+_ * _ * "CALL_ENCRYPT" * "CALL_ENCRYPT" * _ * _ * _ * _ * _ * _ * _ * _ -> "CALL_ENCRYPT",
+_ * _ * "R_ENCRYPT" * "R_ENCRYPT" * _ * _ * _ * _ * _ * _ * _ * _ -> "R_ENCRYPT",
+_ * _ * "CALL_GET_ISACTIVE" * _ * "CALL_GET_ISACTIVE" * _ * _ * _ * _ * _ * _ * _ -> "CALL_GET_ISACTIVE",
+_ * _ * "R_GET_ISACTIVE" * _ * "R_GET_ISACTIVE" * _ * _ * _ * _ * _ * _ * _ -> "R_GET_ISACTIVE",
+_ * _ * "CALL_SET_ISACTIVE" * _ * "CALL_SET_ISACTIVE" * _ * _ * _ * _ * _ * _ * _ -> "CALL_SET_ISACTIVE",
+_ * _ * "CALL_SET_LEFT" * _ * _ * "CALL_SET_LEFT" * _ * _ * _ * _ * _ * _ -> "CALL_SET_LEFT",
+_ * _ * "CALL_GET_LEFT" * _ * _ * "CALL_GET_LEFT" * _ * _ * _ * _ * _ * _ -> "CALL_GET_LEFT",
+_ * _ * "R_GET_LEFT" * _ * _ * "R_GET_LEFT" * _ * _ * _ * _ * _ * _ -> "R_GET_LEFT",
+_ * _ * "CALL_GET_CNUM" * _ * _ * _ * "CALL_GET_CNUM" * _ * _ * _ * _ * _ -> "CALL_GET_CNUM",
+_ * _ * "R_GET_CNUM" * _ * _ * _ * "R_GET_CNUM" * _ * _ * _ * _ * _ -> "R_GET_CNUM",
+_ * _ * "CALL_GET_MAX" * _ * _ * _ * _ * "CALL_GET_MAX" * _ * _ * _ * _ -> "CALL_GET_MAX",
+_ * _ * "R_GET_MAX" * _ * _ * _ * _ * "R_GET_MAX" * _ * _ * _ * _ -> "R_GET_MAX",
+_ * _ * "CALL_SET_MAX" * _ * _ * _ * _ * "CALL_SET_MAX" * _ * _ * _ * _ -> "CALL_SET_MAX",
+_ * _ * _ * _ * _ * _ * _ * _ * _ * _ * _ * "R_REQUESTKEY_1" -> "R_REQUESTKEY_0_1",
+_ * _ * _ * _ * _ * _ * _ * _ * _ * _ * "R_REQUESTKEY_1" * _ -> "R_REQUESTKEY_1_1",
+_ * _ * _ * _ * _ * _ * _ * _ * _ * "R_REQUESTKEY_1" * _ * _ -> "R_REQUESTKEY_2_1",
+_ * _ * _ * _ * _ * _ * _ * _ * _ * _ * _ * "R_REQUESTKEY_2" -> "R_REQUESTKEY_0_2",
+_ * _ * _ * _ * _ * _ * _ * _ * _ * _ * "R_REQUESTKEY_2" * _ -> "R_REQUESTKEY_1_2",
+_ * _ * _ * _ * _ * _ * _ * _ * _ * "R_REQUESTKEY_2" * _ * _ -> "R_REQUESTKEY_2_2",
+_ * _ * _ * _ * _ * _ * _ * _ * _ * _ * _ * "R_REQUESTKEY_3" -> "R_REQUESTKEY_0_3",
+_ * _ * _ * _ * _ * _ * _ * _ * _ * _ * "R_REQUESTKEY_3" * _ -> "R_REQUESTKEY_1_3",
+_ * _ * _ * _ * _ * _ * _ * _ * _ * "R_REQUESTKEY_3" * _ * _ -> "R_REQUESTKEY_2_3",
+_ * _ * _ * _ * _ * _ * _ * _ * _ * _ * _ * "R_REQUESTKEY_4" -> "R_REQUESTKEY_0_4",
+_ * _ * _ * _ * _ * _ * _ * _ * _ * _ * "R_REQUESTKEY_4" * _ -> "R_REQUESTKEY_1_4",
+_ * _ * _ * _ * _ * _ * _ * _ * _ * "R_REQUESTKEY_4" * _ * _ -> "R_REQUESTKEY_2_4",
+"ERRORQUEUE" * _ * _ * _ * _ * _ * _ * _ * _ * _ * _ * _ -> "ERRORQUEUE" 
+
+
+in
+"Comp2_Queue" ||"Comp2_Body"||"Comp2_message"||"Comp2_encrypt"||"Comp2_isActive_ac"||"Comp2_left_ac"||"Comp2_cnum_ac"||"Comp2_max_ac"||"Comp2_requestKey_Proxy_Manager"||"Comp2_requestKey_Proxy"||"Comp2_requestKey_Proxy"||"Comp2_requestKey_Proxy"
+end par

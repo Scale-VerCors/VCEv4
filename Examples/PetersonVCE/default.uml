@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:smextension="http://www.example.org/smextension" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmlns:vcetypes="http://www.example.org/vcetypes" xmi:id="_68mqgLH6EeSMy6Xo1S2Y3Q">
+  <packagedElement xmi:type="uml:Class" xmi:id="_hougkLH8EeSMy6Xo1S2Y3Q" name="Class0">
+    <ownedAttribute xmi:id="_gYjf4LIBEeSMy6Xo1S2Y3Q" name="isActive">
+      <type xmi:type="vcetypes:BoolType" href="default.vcetypes#//@boolType"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gYkG8LIBEeSMy6Xo1S2Y3Q" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gYkG8bIBEeSMy6Xo1S2Y3Q" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_ZLVQ4MjOEeSB4bwTAClE-g" value="0"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_f_t6YLIHEeSMy6Xo1S2Y3Q" name="left">
+      <type xmi:type="vcetypes:IntInterval" href="default.vcetypes#//@intIntervals.0/@intIntervals.1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_f_uhcLIHEeSMy6Xo1S2Y3Q" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_f_uhcbIHEeSMy6Xo1S2Y3Q" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_a0sbYMjOEeSB4bwTAClE-g" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_qS4p8AoEEeW9C4g1CWTFbw" name="cnum" aggregation="composite">
+      <type xmi:type="vcetypes:IntInterval" href="default.vcetypes#//@intIntervals.0/@intIntervals.1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qS4p8QoEEeW9C4g1CWTFbw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qS4p8goEEeW9C4g1CWTFbw" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_qS4p8woEEeW9C4g1CWTFbw" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_qS4p9AoEEeW9C4g1CWTFbw" name="max" aggregation="composite">
+      <type xmi:type="vcetypes:IntInterval" href="default.vcetypes#//@intIntervals.0/@intIntervals.1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qS4p9QoEEeW9C4g1CWTFbw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qS4p9goEEeW9C4g1CWTFbw" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_qS4p9woEEeW9C4g1CWTFbw" value="1"/>
+    </ownedAttribute>
+    <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_ez4igLKNEeSMy6Xo1S2Y3Q" name="message" specification="_nJfZcLIHEeSMy6Xo1S2Y3Q">
+      <region xmi:id="_serekLKNEeSMy6Xo1S2Y3Q" name="region">
+        <transition xmi:id="_1Z_2ILLBEeSjA_9rLgb2Aw" name="/isActive:=this.get_isActive()" source="_GEUT0LLBEeSjA_9rLgb2Aw" target="_K_AocNILEeSFnJNj2lcvEw"/>
+        <transition xmi:id="_IIJFYLLEEeSjA_9rLgb2Aw" name="[step == 1]" source="_0k9rkLLBEeSjA_9rLgb2Aw" target="_74-EsLLBEeSjA_9rLgb2Aw"/>
+        <transition xmi:id="_thqrILLFEeSTzK9xnh9AxA" name="[val > max || val &lt; max]/C1.message(2,val)" source="_74-EsLLBEeSjA_9rLgb2Aw" target="_r7xEULLFEeSTzK9xnh9AxA"/>
+        <transition xmi:id="_cZ9t4LLGEeSTzK9xnh9AxA" name="/this.set_left(val)" source="_r7xEULLFEeSTzK9xnh9AxA" target="_t8WCsLLKEeSTzK9xnh9AxA"/>
+        <transition xmi:id="_yWOw4LLGEeSTzK9xnh9AxA" name="[val==max]&#xA;/cnum := this.get_cnum()" source="_74-EsLLBEeSjA_9rLgb2Aw" target="_NHjVoP12EeSGco9YZarWEg"/>
+        <transition xmi:id="_V3aU8LLIEeSTzK9xnh9AxA" name="[step==2]/left:=this.get_left()" source="_0k9rkLLBEeSjA_9rLgb2Aw" target="_VTkBALLIEeSTzK9xnh9AxA"/>
+        <transition xmi:id="_O1NoELLJEeSTzK9xnh9AxA" name="[left>val &amp;&amp; left > max]/this.set_max(left)" source="_VTkBALLIEeSTzK9xnh9AxA" target="_OS_r0LLJEeSTzK9xnh9AxA"/>
+        <transition xmi:id="_ikdZ4LLJEeSTzK9xnh9AxA" name="/C1.message(1,left)" source="_OS_r0LLJEeSTzK9xnh9AxA" target="_t8WCsLLKEeSTzK9xnh9AxA"/>
+        <transition xmi:id="_NTT7ALLKEeSTzK9xnh9AxA" name="[left&lt;=val || left &lt;= max]&#xA;/this.set_isActive(false)" source="_VTkBALLIEeSTzK9xnh9AxA" target="_diMqgP1zEeSGco9YZarWEg"/>
+        <transition xmi:id="_H9LxkLLPEeSPR-4K11BuYw" name="[isActive==true]&#xA;/max:=this.get_max()" source="_AwBnULLPEeSPR-4K11BuYw" target="_0k9rkLLBEeSjA_9rLgb2Aw"/>
+        <transition xmi:id="_TOGFILLPEeSPR-4K11BuYw" name="[isActive==false]&#xA;/C1.message(step,val)" source="_AwBnULLPEeSPR-4K11BuYw" target="_t8WCsLLKEeSTzK9xnh9AxA"/>
+        <transition xmi:id="_vxHYQMu-EeS2xJEWUpjxvA" name="/this.set_isActive(false)" source="_ruc0EMu-EeS2xJEWUpjxvA" target="_t8WCsLLKEeSTzK9xnh9AxA"/>
+        <transition xmi:id="_bLf84M7kEeS5BpveHFDVJg" name="/C2.IAmNotTheLeader(cnum)" source="_KYTFcM7kEeS5BpveHFDVJg" target="_t8WCsLLKEeSTzK9xnh9AxA"/>
+        <transition xmi:id="_WEcr0NILEeSFnJNj2lcvEw" name="[step==1 || step ==2]" source="_K_AocNILEeSFnJNj2lcvEw" target="_AwBnULLPEeSPR-4K11BuYw"/>
+        <transition xmi:id="_wDAfkNILEeSFnJNj2lcvEw" name="[step==0]" source="_K_AocNILEeSFnJNj2lcvEw" target="_u2Jq4NILEeSFnJNj2lcvEw"/>
+        <transition xmi:id="_0vKFoNILEeSFnJNj2lcvEw" name="[isActive==true]" source="_u2Jq4NILEeSFnJNj2lcvEw" target="_t8WCsLLKEeSTzK9xnh9AxA"/>
+        <transition xmi:id="_KYsZ4NIMEeSFnJNj2lcvEw" name="[isActive == false]/this.set_isActive(true)" source="_u2Jq4NILEeSFnJNj2lcvEw" target="_ASXDENIMEeSFnJNj2lcvEw"/>
+        <transition xmi:id="_N8eCoNIMEeSFnJNj2lcvEw" name="/C1.message(0,val)" source="_ASXDENIMEeSFnJNj2lcvEw" target="_A2ENENIMEeSFnJNj2lcvEw"/>
+        <transition xmi:id="_aVZHINIMEeSFnJNj2lcvEw" name="/max:=this.get_max()" source="_A2ENENIMEeSFnJNj2lcvEw" target="_BFo6INIMEeSFnJNj2lcvEw"/>
+        <transition xmi:id="_b_TrQNIMEeSFnJNj2lcvEw" name="/C1.message(1,max)" source="_BFo6INIMEeSFnJNj2lcvEw" target="_t8WCsLLKEeSTzK9xnh9AxA"/>
+        <transition xmi:id="_pDbAEP11EeSGco9YZarWEg" name="/cnum := this.get_cnum()" source="_diMqgP1zEeSGco9YZarWEg" target="_KYTFcM7kEeS5BpveHFDVJg"/>
+        <transition xmi:id="_iNo-kP12EeSGco9YZarWEg" name="/C2.IAmTheLeader(cnum)" source="_U22uIG6JEeW4NutSTjC3_w" target="_fEY-oFI5EeWW_-gr1zsV5w"/>
+        <transition xmi:id="_oLBzAFI5EeWW_-gr1zsV5w" name="/key:=C3.requestKey()" source="_NHjVoP12EeSGco9YZarWEg" target="_hcJgMFI5EeWW_-gr1zsV5w"/>
+        <transition xmi:id="_r4-EYFI5EeWW_-gr1zsV5w" name="/this.encrypt(key)" source="_fEY-oFI5EeWW_-gr1zsV5w" target="_ruc0EMu-EeS2xJEWUpjxvA"/>
+        <transition xmi:id="_PXdWQFI6EeWW_-gr1zsV5w" name="/return" source="_t8WCsLLKEeSTzK9xnh9AxA" target="_LzoDIFI6EeWW_-gr1zsV5w"/>
+        <transition xmi:id="_pnVTcG6JEeW4NutSTjC3_w" name="//System.out.println(&quot;I  am the leader!&quot; + cnum);" source="_hcJgMFI5EeWW_-gr1zsV5w" target="_U22uIG6JEeW4NutSTjC3_w"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_GEUT0LLBEeSjA_9rLgb2Aw" name="Initial"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_0k9rkLLBEeSjA_9rLgb2Aw" name="Choice5" kind="choice"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_74-EsLLBEeSjA_9rLgb2Aw" name="Choice3" kind="choice"/>
+        <subvertex xmi:type="uml:State" xmi:id="_r7xEULLFEeSTzK9xnh9AxA" name="State1"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_VTkBALLIEeSTzK9xnh9AxA" name="Choice4" kind="choice"/>
+        <subvertex xmi:type="uml:State" xmi:id="_OS_r0LLJEeSTzK9xnh9AxA" name="State3"/>
+        <subvertex xmi:type="uml:State" xmi:id="_t8WCsLLKEeSTzK9xnh9AxA" name="State13"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_AwBnULLPEeSPR-4K11BuYw" name="Choice2" kind="choice"/>
+        <subvertex xmi:type="uml:State" xmi:id="_ruc0EMu-EeS2xJEWUpjxvA" name="State4"/>
+        <subvertex xmi:type="uml:State" xmi:id="_KYTFcM7kEeS5BpveHFDVJg" name="State5"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_K_AocNILEeSFnJNj2lcvEw" name="Choice6" kind="choice"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_u2Jq4NILEeSFnJNj2lcvEw" name="Choice7" kind="choice"/>
+        <subvertex xmi:type="uml:State" xmi:id="_ASXDENIMEeSFnJNj2lcvEw" name="State6"/>
+        <subvertex xmi:type="uml:State" xmi:id="_A2ENENIMEeSFnJNj2lcvEw" name="State7"/>
+        <subvertex xmi:type="uml:State" xmi:id="_BFo6INIMEeSFnJNj2lcvEw" name="State8"/>
+        <subvertex xmi:type="uml:State" xmi:id="_diMqgP1zEeSGco9YZarWEg" name="State9"/>
+        <subvertex xmi:type="uml:State" xmi:id="_NHjVoP12EeSGco9YZarWEg" name="State10"/>
+        <subvertex xmi:type="uml:State" xmi:id="_fEY-oFI5EeWW_-gr1zsV5w" name="State11"/>
+        <subvertex xmi:type="uml:State" xmi:id="_hcJgMFI5EeWW_-gr1zsV5w" name="State12"/>
+        <subvertex xmi:type="uml:State" xmi:id="_LzoDIFI6EeWW_-gr1zsV5w" name="Final"/>
+        <subvertex xmi:type="uml:State" xmi:id="_U22uIG6JEeW4NutSTjC3_w" name="State14"/>
+      </region>
+    </ownedBehavior>
+    <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_PopDcFMXEeWVm_L-yHkZrw" name="encrypt" specification="_PMwmUFIzEeWW_-gr1zsV5w">
+      <region xmi:id="_QRJ08FMXEeWVm_L-yHkZrw" name="region">
+        <transition xmi:id="_dEasEFMXEeWVm_L-yHkZrw" name="/return" source="_cIpAUFMXEeWVm_L-yHkZrw" target="_bWE68FMXEeWVm_L-yHkZrw"/>
+        <subvertex xmi:type="uml:State" xmi:id="_bWE68FMXEeWVm_L-yHkZrw" name="State1"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_cIpAUFMXEeWVm_L-yHkZrw" name="Initial1"/>
+      </region>
+    </ownedBehavior>
+    <ownedOperation xmi:id="_nJfZcLIHEeSMy6Xo1S2Y3Q" name="message" method="_ez4igLKNEeSMy6Xo1S2Y3Q" redefinedOperation="_EVmHQLIIEeSMy6Xo1S2Y3Q">
+      <ownedParameter xmi:id="_r6KTILIHEeSMy6Xo1S2Y3Q" name="step">
+        <type xmi:type="vcetypes:IntInterval" href="default.vcetypes#//@intIntervals.0/@intIntervals.0"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_vqqwULIHEeSMy6Xo1S2Y3Q" name="val">
+        <type xmi:type="vcetypes:IntInterval" href="default.vcetypes#//@intIntervals.0/@intIntervals.1"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_L96EQLtPEeSnYIWaYhnpNg" name="set_max">
+      <ownedParameter xmi:id="_NT5m0LtPEeSnYIWaYhnpNg" name="value">
+        <type xmi:type="vcetypes:IntInterval" href="default.vcetypes#//@intIntervals.0/@intIntervals.1"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_TLV7ULtPEeSnYIWaYhnpNg" name="get_left">
+      <ownedParameter xmi:id="_TLV7UbtPEeSnYIWaYhnpNg" direction="return">
+        <name xsi:nil="true"/>
+        <type xmi:type="vcetypes:IntInterval" href="default.vcetypes#//@intIntervals.0/@intIntervals.1"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_URE0ULtPEeSnYIWaYhnpNg" name="set_left">
+      <ownedParameter xmi:id="_URE0UbtPEeSnYIWaYhnpNg" name="value">
+        <type xmi:type="vcetypes:IntInterval" href="default.vcetypes#//@intIntervals.0/@intIntervals.1"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_Veqo0LtPEeSnYIWaYhnpNg" name="get_isActive">
+      <ownedParameter xmi:id="_Veqo0btPEeSnYIWaYhnpNg" direction="return">
+        <name xsi:nil="true"/>
+        <type xmi:type="vcetypes:BoolType" href="default.vcetypes#//@boolType"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_WXWkULtPEeSnYIWaYhnpNg" name="set_isActive">
+      <ownedParameter xmi:id="_WXWkUbtPEeSnYIWaYhnpNg" name="value">
+        <type xmi:type="vcetypes:BoolType" href="default.vcetypes#//@boolType"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_lfs-gP1xEeSGco9YZarWEg" name="set_cnum">
+      <ownedParameter xmi:id="_lfs-gf1xEeSGco9YZarWEg" name="value">
+        <type xmi:type="vcetypes:IntInterval" href="default.vcetypes#//@intIntervals.0/@intIntervals.1"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_jhvvEAqNEeW9C4g1CWTFbw" name="get_max">
+      <ownedParameter xmi:id="_jhvvEQqNEeW9C4g1CWTFbw" direction="return">
+        <name xsi:nil="true"/>
+        <type xmi:type="vcetypes:IntInterval" href="default.vcetypes#//@intIntervals.0/@intIntervals.1"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_kZblAAqNEeW9C4g1CWTFbw" name="get_cnum">
+      <ownedParameter xmi:id="_kZblAQqNEeW9C4g1CWTFbw" direction="return">
+        <name xsi:nil="true"/>
+        <type xmi:type="vcetypes:IntInterval" href="default.vcetypes#//@intIntervals.0/@intIntervals.1"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_PMwmUFIzEeWW_-gr1zsV5w" name="encrypt" method="_PopDcFMXEeWVm_L-yHkZrw">
+      <ownedParameter xmi:id="_WzwiAFI1EeWW_-gr1zsV5w" name="key">
+        <type xmi:type="vcetypes:IntInterval" href="default.vcetypes#//@intIntervals.0/@intIntervals.1"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_0UL5ILIHEeSMy6Xo1S2Y3Q" name="ElectionItf">
+    <ownedOperation xmi:id="_EVmHQLIIEeSMy6Xo1S2Y3Q" name="message">
+      <ownedParameter xmi:id="_EVmHQbIIEeSMy6Xo1S2Y3Q" name="step">
+        <type xmi:type="vcetypes:IntInterval" href="default.vcetypes#//@intIntervals.0/@intIntervals.0"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_EVmHQrIIEeSMy6Xo1S2Y3Q" name="val">
+        <type xmi:type="vcetypes:IntInterval" href="default.vcetypes#//@intIntervals.0/@intIntervals.1"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="smextension:VariablesDeclaration" xmi:id="_YXhQULK_EeSySIut8gBltQ" stateMachine="_ez4igLKNEeSMy6Xo1S2Y3Q">
+    <variables xmi:id="_ZicyYLK_EeSySIut8gBltQ" name="step">
+      <type xmi:type="vcetypes:IntInterval" href="default.vcetypes#//@intIntervals.0/@intIntervals.0"/>
+    </variables>
+    <variables xmi:id="_q7qrgLLAEeSjA_9rLgb2Aw" name="val">
+      <type xmi:type="vcetypes:IntInterval" href="default.vcetypes#//@intIntervals.0/@intIntervals.1"/>
+    </variables>
+    <variables xmi:id="_bNOnQLLBEeSjA_9rLgb2Aw" name="isActive">
+      <type xmi:type="vcetypes:BoolType" href="default.vcetypes#//@boolType"/>
+    </variables>
+    <variables xmi:id="_c2cAwLLBEeSjA_9rLgb2Aw" name="left">
+      <type xmi:type="vcetypes:IntInterval" href="default.vcetypes#//@intIntervals.0/@intIntervals.1"/>
+    </variables>
+    <variables xmi:id="_dTDEQLLBEeSjA_9rLgb2Aw" name="max">
+      <type xmi:type="vcetypes:IntInterval" href="default.vcetypes#//@intIntervals.0/@intIntervals.1"/>
+    </variables>
+    <variables xmi:id="_XkumgP1zEeSGco9YZarWEg" name="cnum">
+      <type xmi:type="vcetypes:IntInterval" href="default.vcetypes#//@intIntervals.0/@intIntervals.1"/>
+    </variables>
+    <variables xmi:id="_2OV8wFI5EeWW_-gr1zsV5w" name="key">
+      <type xmi:type="vcetypes:IntInterval" href="default.vcetypes#//@intIntervals.0/@intIntervals.1"/>
+    </variables>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_tYuYAMvTEeS2xJEWUpjxvA" name="MonitorItf">
+    <ownedOperation xmi:id="_AlnjUMvXEeS2xJEWUpjxvA" name="IAmTheLeader">
+      <ownedParameter xmi:id="_MWqBAP1yEeSGco9YZarWEg" name="cnum">
+        <type xmi:type="vcetypes:IntInterval" href="default.vcetypes#//@intIntervals.0/@intIntervals.1"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_biGUcM7jEeS5BpveHFDVJg" name="IAmNotTheLeader">
+      <ownedParameter xmi:id="_HG4JcP1yEeSGco9YZarWEg" name="cnum">
+        <type xmi:type="vcetypes:IntInterval" href="default.vcetypes#//@intIntervals.0/@intIntervals.1"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_bq9qsM4hEeSltdIor8DhBQ" name="Class1" classifierBehavior="_SbPQIM4_EeSmqoq7ClHNYQ">
+    <generalization xmi:id="_xaOzgM4hEeSltdIor8DhBQ" general="_hougkLH8EeSMy6Xo1S2Y3Q"/>
+    <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_SbPQIM4_EeSmqoq7ClHNYQ" name="runSystem" specification="_v79UEM7kEeS5BpveHFDVJg">
+      <region xmi:id="_TbelIM4_EeSmqoq7ClHNYQ" name="region">
+        <transition xmi:id="_H3tKgM5AEeSmqoq7ClHNYQ" name="/C1.message(0,1)" source="_Go2KsM5AEeSmqoq7ClHNYQ" target="_HL_UAM5AEeSmqoq7ClHNYQ"/>
+        <transition xmi:id="_DzvQ4FI5EeWW_-gr1zsV5w" name="/return" source="_HL_UAM5AEeSmqoq7ClHNYQ" target="_Crjg0FI5EeWW_-gr1zsV5w"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_Go2KsM5AEeSmqoq7ClHNYQ" name="Initial1"/>
+        <subvertex xmi:type="uml:State" xmi:id="_HL_UAM5AEeSmqoq7ClHNYQ" name="State1"/>
+        <subvertex xmi:type="uml:State" xmi:id="_Crjg0FI5EeWW_-gr1zsV5w" name="State2"/>
+      </region>
+    </ownedBehavior>
+    <ownedOperation xmi:id="_v79UEM7kEeS5BpveHFDVJg" name="runPeterson" method="_SbPQIM4_EeSmqoq7ClHNYQ" redefinedOperation="_b93AcM5AEeSmqoq7ClHNYQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_MAm5kM5AEeSmqoq7ClHNYQ" name="RunElection">
+    <ownedOperation xmi:id="_b93AcM5AEeSmqoq7ClHNYQ" name="runPeterson"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_2UVxMNbhEeSy1dfuCa2odA" name="Scenario">
+    <region xmi:id="_4-_ZkNbhEeSy1dfuCa2odA" name="Region">
+      <transition xmi:id="_AnUc4NbiEeSy1dfuCa2odA" name="/S1.runPeterson()" source="__-lB4NbhEeSy1dfuCa2odA" target="_9bxG4NbhEeSy1dfuCa2odA"/>
+      <subvertex xmi:type="uml:State" xmi:id="_9bxG4NbhEeSy1dfuCa2odA" name="State1"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="__-lB4NbhEeSy1dfuCa2odA" name="Initial1"/>
+    </region>
+  </packagedElement>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_fjok0AhKEeWLqKuOWto5nQ" name="message">
+    <region xmi:id="_kI-_UAhKEeWLqKuOWto5nQ" name="region"/>
+  </packagedElement>
+  <packagedElement xmi:type="smextension:VariablesDeclaration" xmi:id="_VTYSkGEWEeW5LvxHcz6cXQ" stateMachine="_PopDcFMXEeWVm_L-yHkZrw"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_9sFLMGzIEeWbRrsKoH7zsw" name="KeyStorageItf">
+    <ownedOperation xmi:id="_Bx1foGzJEeWbRrsKoH7zsw" name="requestKey">
+      <ownedParameter xmi:id="_Bx1foWzJEeWbRrsKoH7zsw" name="key" direction="return">
+        <type xmi:type="vcetypes:IntInterval" href="default.vcetypes#//@intIntervals.0/@intIntervals.1"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+</uml:Model>

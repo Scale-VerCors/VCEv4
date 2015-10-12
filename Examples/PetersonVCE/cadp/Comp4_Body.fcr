@@ -1,0 +1,32 @@
+const Max_Proxy:nat is 3
+type IntType is 0..0
+type BoolType is 0..1
+type NatType is nat
+type IntInterval is 1..4
+type StepInterval is 0..2
+process Comp4_Body
+[Serve_message: in StepInterval#IntInterval,
+Serve_runPeterson: none,
+Call_message: out StepInterval#IntInterval,
+R_message: none,
+Call_runPeterson: none,
+R_runPeterson: none]
+is
+states s0,s1,s3,s2,s4
+var val:IntInterval, step:StepInterval
+from s0
+	select 
+	Serve_message?step, val; to s1
+	[]
+	Serve_runPeterson; to s3
+	end
+from s1
+	Call_message!step, val; to s2
+from s2
+	R_message; to s0
+from s3
+	Call_runPeterson; to s4
+from s4
+	R_runPeterson; to s0
+
+Comp4_Body
