@@ -12,6 +12,12 @@ The project contains:
 * src/Main.java - the starting point of the example. It invokes the factory that constructs the components from ADL files, binds components, starts them and calls runPeterson() operation on Application component.
 
 ##### Run the project
+In order to use ProActive library, add .java.policy file to your user home directory. The file should give permissions to ProActive. An example of the file contents could be:
+
+grant {
+permission java.security.AllPermission;
+};
+
 In order to run the project, run main(..) method of src/Main.java with the following VM argument: "-Dgcm.provider="org.objectweb.proactive.core.component.Fractive".
 
 After the components were created and runPeterson() method of Application is invoked, the following output will be printed to the console:
