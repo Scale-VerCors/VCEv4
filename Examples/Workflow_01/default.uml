@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:smextension="http://www.example.org/smextension" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmlns:vcetypes="http://www.example.org/vcetypes" xmi:id="_2eJkAOKTEeS_x5xkJFedWQ">
+  <packagedElement xmi:type="uml:Class" xmi:id="_l4TWoOKUEeS_x5xkJFedWQ" name="Class1" classifierBehavior="_iqi50OKXEeS_x5xkJFedWQ">
+    <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_iqi50OKXEeS_x5xkJFedWQ" name="Task1" specification="_WtEQoOKWEeS_x5xkJFedWQ">
+      <region xmi:id="_kJx38OKXEeS_x5xkJFedWQ" name="region">
+        <transition xmi:id="_RnkrkOKYEeS_x5xkJFedWQ" name="/return 1" source="_P0N3kOKYEeS_x5xkJFedWQ" target="_Q7ZiEOKYEeS_x5xkJFedWQ"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_P0N3kOKYEeS_x5xkJFedWQ" name="Initial1"/>
+        <subvertex xmi:type="uml:State" xmi:id="_Q7ZiEOKYEeS_x5xkJFedWQ" name="State1"/>
+      </region>
+    </ownedBehavior>
+    <ownedOperation xmi:id="_WtEQoOKWEeS_x5xkJFedWQ" name="Task1" method="_iqi50OKXEeS_x5xkJFedWQ" redefinedOperation="_WtEQoOKWEeS_x5xkJFedWQ">
+      <ownedParameter xmi:id="_WtEQoeKWEeS_x5xkJFedWQ" name="x" direction="return">
+        <type xmi:type="vcetypes:IntInterval" href="default.vcetypes#//@intIntervals.0/@intIntervals.0"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_m3KyoOKUEeS_x5xkJFedWQ" name="Class2" classifierBehavior="_pnCx4OKXEeS_x5xkJFedWQ">
+    <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_pnCx4OKXEeS_x5xkJFedWQ" name="Task2" specification="_CzXiUOKWEeS_x5xkJFedWQ">
+      <region xmi:id="_qb2S8OKXEeS_x5xkJFedWQ" name="region">
+        <transition xmi:id="_ZOXd0OKYEeS_x5xkJFedWQ" name="/return" source="_YvhlsOKYEeS_x5xkJFedWQ" target="_YKwEsOKYEeS_x5xkJFedWQ"/>
+        <subvertex xmi:type="uml:State" xmi:id="_YKwEsOKYEeS_x5xkJFedWQ" name="State1"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_YvhlsOKYEeS_x5xkJFedWQ" name="Initial1"/>
+      </region>
+    </ownedBehavior>
+    <ownedOperation xmi:id="_CzXiUOKWEeS_x5xkJFedWQ" name="Task2" method="_pnCx4OKXEeS_x5xkJFedWQ" redefinedOperation="_CzXiUOKWEeS_x5xkJFedWQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_s2VfwOKUEeS_x5xkJFedWQ" name="TaskDistributor">
+    <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_sTlQoOKXEeS_x5xkJFedWQ" name="runWorkflow" specification="_gAOTgOKVEeS_x5xkJFedWQ">
+      <region xmi:id="_sTlQoeKXEeS_x5xkJFedWQ" name="region">
+        <transition xmi:id="_18WsQOKYEeS_x5xkJFedWQ" name="/x:=C1.Task1()" source="_l9k7YOKYEeS_x5xkJFedWQ" target="_ksGFYOKYEeS_x5xkJFedWQ"/>
+        <transition xmi:id="_2YyJkOKYEeS_x5xkJFedWQ" name="/C2.Task2()" source="_ksGFYOKYEeS_x5xkJFedWQ" target="_mnFLYOKYEeS_x5xkJFedWQ"/>
+        <transition xmi:id="_noft0DXWEeW9UZ4NH76rDw" name="/return" source="_0R1usAq6EeW205dHljlZvw" target="_ldqN8DXWEeW9UZ4NH76rDw"/>
+        <transition xmi:id="_ag1sUDXcEeW9UZ4NH76rDw" name="/b:=C3.Validate(x)" source="_mnFLYOKYEeS_x5xkJFedWQ" target="_0R1usAq6EeW205dHljlZvw"/>
+        <subvertex xmi:type="uml:State" xmi:id="_ksGFYOKYEeS_x5xkJFedWQ" name="State1"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_l9k7YOKYEeS_x5xkJFedWQ" name="Initial1"/>
+        <subvertex xmi:type="uml:State" xmi:id="_mnFLYOKYEeS_x5xkJFedWQ" name="State2"/>
+        <subvertex xmi:type="uml:State" xmi:id="_0R1usAq6EeW205dHljlZvw" name="State3"/>
+        <subvertex xmi:type="uml:State" xmi:id="_ldqN8DXWEeW9UZ4NH76rDw" name="State4"/>
+      </region>
+    </ownedBehavior>
+    <ownedOperation xmi:id="_gAOTgOKVEeS_x5xkJFedWQ" name="runWorkflow" method="_sTlQoOKXEeS_x5xkJFedWQ" redefinedOperation="_gAOTgOKVEeS_x5xkJFedWQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_YUZ3UOKVEeS_x5xkJFedWQ" name="Interface1">
+    <ownedOperation xmi:id="_Av2ycOKWEeS_x5xkJFedWQ" name="Task1">
+      <ownedParameter xmi:id="_Tn4BUOKWEeS_x5xkJFedWQ" name="x" direction="return">
+        <type xmi:type="vcetypes:IntInterval" href="default.vcetypes#//@intIntervals.0/@intIntervals.0"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_aTSl4OKVEeS_x5xkJFedWQ" name="Interface2">
+    <ownedOperation xmi:id="_Ce5HIOKWEeS_x5xkJFedWQ" name="Task2"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_a9yUYOKVEeS_x5xkJFedWQ" name="Interface3">
+    <ownedOperation xmi:id="_C7dHUOKWEeS_x5xkJFedWQ" name="Validate">
+      <ownedParameter xmi:id="_OyN58OKWEeS_x5xkJFedWQ" name="x">
+        <type xmi:type="vcetypes:IntInterval" href="default.vcetypes#//@intIntervals.0/@intIntervals.0"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_hMUQYDXdEeW9UZ4NH76rDw" direction="return">
+        <type xmi:type="vcetypes:BoolType" href="default.vcetypes#//@boolType"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_bie84OKVEeS_x5xkJFedWQ" name="RunWorkflow">
+    <ownedOperation xmi:id="_dzAOAOKVEeS_x5xkJFedWQ" name="runWorkflow"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_tQTXkOKXEeS_x5xkJFedWQ" name="Scenario_WF">
+    <region xmi:id="_tQT-oOKXEeS_x5xkJFedWQ" name="region">
+      <transition xmi:id="_QqneoOKZEeS_x5xkJFedWQ" name="/S1.runWorkflow()" source="_QDnJAOKZEeS_x5xkJFedWQ" target="_O-pFAOKZEeS_x5xkJFedWQ"/>
+      <subvertex xmi:type="uml:State" xmi:id="_O-pFAOKZEeS_x5xkJFedWQ" name="State1"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_QDnJAOKZEeS_x5xkJFedWQ" name="Initial1"/>
+    </region>
+  </packagedElement>
+  <packagedElement xmi:type="smextension:VariablesDeclaration" xmi:id="_okfTQOKYEeS_x5xkJFedWQ" stateMachine="_sTlQoOKXEeS_x5xkJFedWQ">
+    <variables xmi:id="_pjvw0OKYEeS_x5xkJFedWQ" name="x">
+      <type xmi:type="vcetypes:IntInterval" href="default.vcetypes#//@intIntervals.0/@intIntervals.0"/>
+    </variables>
+    <variables xmi:id="_pYPe8GgwEeWg5eaIvcyGXA" name="b">
+      <type xmi:type="vcetypes:BoolType" href="default.vcetypes#//@boolType"/>
+    </variables>
+  </packagedElement>
+</uml:Model>

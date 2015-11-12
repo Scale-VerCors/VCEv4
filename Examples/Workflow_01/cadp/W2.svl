@@ -1,0 +1,5 @@
+"W2_nh.bcg"=  branching reduction of "W2_SV.exp";
+
+"W2.bcg" = branching reduction of gate hide
+"CALL_TASK2", "R_TASK2", "SERVE_TASK2"
+in "W2_nh.bcg"

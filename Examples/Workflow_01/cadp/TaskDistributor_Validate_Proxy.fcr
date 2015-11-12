@@ -1,0 +1,22 @@
+const Max_Proxy:nat is 2
+type IntType is 0..0
+type BoolType is 0..1
+type NatType is nat
+process TaskDistributor_Validate_Proxy
+[New_Validate: none,
+R_Validate: in BoolType,
+Get_Value_Validate: none,
+R_Get_ValueValidate: out BoolType]
+is
+states s0,s2,s1,s3
+var val:BoolType
+from s0
+	New_Validate; to s1
+from s1
+	R_Validate?val; to s2
+from s2
+	Get_Value_Validate; to s3
+from s3
+	R_Get_ValueValidate!val; to s0
+
+TaskDistributor_Validate_Proxy

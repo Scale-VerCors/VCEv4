@@ -1,0 +1,15 @@
+"W1_Body_nr.bcg" = total rename
+"R_TASK1 !POS (\([0-9]*\))\(.*\)"->"R_TASK1_\1 \2"
+in "W1_Body.bcg";
+"W1_Body.bcg" = "W1_Body_nr.bcg";
+
+"W1_Task1_nr.bcg" = total rename
+"R_TASK1 !POS (\([0-9]*\))\(.*\)"->"R_TASK1_\1 \2"
+in "W1_Task1.bcg";
+"W1_Task1.bcg" = "W1_Task1_nr.bcg";
+
+"W1_nh.bcg"=  branching reduction of "W1_SV.exp";
+
+"W1.bcg" = branching reduction of gate hide
+"CALL_TASK1", "SERVE_TASK1", "R_TASK1"
+in "W1_nh.bcg"

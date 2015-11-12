@@ -1,0 +1,41 @@
+const Max_Proxy:nat is 2
+type IntType is 0..0
+type BoolType is 0..1
+type NatType is nat
+type FutureType is 0..1
+type ERROR_TYPE is union NoMoreProxy end
+type ArrayType is array Max_Proxy of BoolType
+process WorkFlow_Validate_Proxy_Manager
+[Recycle_Validate: in FutureType,
+Get_Proxy_Validate: in FutureType,
+New_Validate: out FutureType#FutureType,
+Error: out ERROR_TYPE]
+is
+states s0,s2,s1,s3
+var Pool_Proxy:ArrayType := [1,1], p:FutureType, f:FutureType
+from s0
+	select 
+	Recycle_Validate?p; Pool_Proxy[p]:=1; to s0
+	[]
+	Get_Proxy_Validate?f; p:=0; to s1
+	end
+from s1
+	if Pool_Proxy[p] = 0 then
+	to s2
+	
+	elsif Pool_Proxy[p] = 1 then
+	New_Validate!p, f; Pool_Proxy[p]:=0; to s0
+	else
+	Recycle_Validate?p; Pool_Proxy[p]:=1; to s1
+	end
+from s2
+	if p = Max_Proxy then
+	Error!NoMoreProxy; to s3
+	
+	elsif p < Max_Proxy - 1 then
+	p:=p + 1; to s1
+	else
+	Recycle_Validate?p; Pool_Proxy[p]:=1; to s2
+	end
+
+WorkFlow_Validate_Proxy_Manager

@@ -1,0 +1,24 @@
+const Max_Proxy:nat is 2
+type IntType is 0..0
+type BoolType is 0..1
+type NatType is nat
+type FutureType is 0..1
+type Interval is 0..1
+process WorkFlow_Validate_Delegate
+[Call_Validate: in FutureType#Interval,
+Get_Proxy_Validate: out FutureType,
+New_Validate: in FutureType,
+Q_Validate: out FutureType#Interval]
+is
+states s0,s2,s1,s3
+var f:FutureType, x:Interval, p:FutureType
+from s0
+	Call_Validate?f, x; to s1
+from s1
+	Get_Proxy_Validate!f; to s2
+from s2
+	New_Validate?p; to s3
+from s3
+	Q_Validate!p, x; to s0
+
+WorkFlow_Validate_Delegate

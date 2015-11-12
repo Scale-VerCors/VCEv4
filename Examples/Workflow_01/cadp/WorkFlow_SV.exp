@@ -1,0 +1,49 @@
+-- Synch vectors for the assembly of <WorkFlow_Queue(),WorkFlow_Body(), WorkFlow_Validate_Delegate, WorkFlow_Validate_Proxy_Manager(p), WorkFlow_Validate_Proxy[p], TaskDistributor, W1, W2, Scenario_WF>
+-- with the following input specification:
+-- p:0..1 -- IntInterval
+-- xInterval:0..1 -- IntInterval
+-- val:0..1 -- BoolType
+-- f:0..1 -- IntInterval
+-- res:0..1 -- IntInterval
+-- <WorkFlow_Queue(),WorkFlow_Body(), WorkFlow_Validate_Delegate, WorkFlow_Validate_Proxy_Manager(p), WorkFlow_Validate_Proxy[p], TaskDistributor, W1, W2, Scenario_WF>
+gate par using
+
+"SERVE_RUNWORKFLOW" * "SERVE_RUNWORKFLOW" * _ * _ * _ * _ * _ * _ * _ * _ -> "SERVE_RUNWORKFLOW",
+_ * "CALL_RUNWORKFLOW" * _ * _ * _ * _ * "QUEUE_RUNWORKFLOW" * _ * _ * _ -> "CALL_RUNWORKFLOW",
+"Q_VALIDATE" * _ * _ * _ * _ * _ * "Q_VALIDATE" * _ * _ * _ -> "TASKDISTRIBUTOR_Q_VALIDATE",
+_ * _ * "Q_VALIDATE_0_0" * _ * _ * _ * _ * _ * _ * _ -> "Q_VALIDATE_0_0",
+_ * _ * "Q_VALIDATE_0_1" * _ * _ * _ * _ * _ * _ * _ -> "Q_VALIDATE_0_1",
+_ * _ * "Q_VALIDATE_1_0" * _ * _ * _ * _ * _ * _ * _ -> "Q_VALIDATE_1_0",
+_ * _ * "Q_VALIDATE_1_1" * _ * _ * _ * _ * _ * _ * _ -> "Q_VALIDATE_1_1",
+_ * _ * _ * "RECYCLE_VALIDATE_0" * _ * "R_VALIDATE_0" * "R_VALIDATE_0_0" * _ * _ * _ -> "R_VALIDATE_0_0",
+_ * _ * _ * "RECYCLE_VALIDATE_0" * _ * "R_VALIDATE_0" * "R_VALIDATE_0_1" * _ * _ * _ -> "R_VALIDATE_0_1",
+_ * _ * _ * "RECYCLE_VALIDATE_0" * _ * "R_VALIDATE_1" * "R_VALIDATE_1_0" * _ * _ * _ -> "R_VALIDATE_0_0",
+_ * _ * _ * "RECYCLE_VALIDATE_0" * _ * "R_VALIDATE_1" * "R_VALIDATE_1_1" * _ * _ * _ -> "R_VALIDATE_0_1",
+_ * _ * _ * "RECYCLE_VALIDATE_1" * "R_VALIDATE_0" * _ * "R_VALIDATE_0_0" * _ * _ * _ -> "R_VALIDATE_1_0",
+_ * _ * _ * "RECYCLE_VALIDATE_1" * "R_VALIDATE_0" * _ * "R_VALIDATE_0_1" * _ * _ * _ -> "R_VALIDATE_1_1",
+_ * _ * _ * "RECYCLE_VALIDATE_1" * "R_VALIDATE_1" * _ * "R_VALIDATE_1_0" * _ * _ * _ -> "R_VALIDATE_1_0",
+_ * _ * _ * "RECYCLE_VALIDATE_1" * "R_VALIDATE_1" * _ * "R_VALIDATE_1_1" * _ * _ * _ -> "R_VALIDATE_1_1",
+"SERVE_VALIDATE" * "SERVE_VALIDATE" * _ * _ * _ * _ * _ * _ * _ * _ -> "SERVE_VALIDATE",
+_ * "CALL_VALIDATE" * "CALL_VALIDATE" * _ * _ * _ * _ * _ * _ * _ -> "CALL_VALIDATE",
+_ * _ * "GET_PROXY_VALIDATE" * "GET_PROXY_VALIDATE" * _ * _ * _ * _ * _ * _ -> "GET_PROXY_VALIDATE",
+_ * _ * "NEW_VALIDATE_0" * "NEW_VALIDATE_0_0" * _ * "NEW_VALIDATE_0" * _ * _ * _ * _ -> "NEW_VALIDATE_0_0",
+_ * _ * "NEW_VALIDATE_0" * "NEW_VALIDATE_0_1" * _ * "NEW_VALIDATE_1" * _ * _ * _ * _ -> "NEW_VALIDATE_0_1",
+_ * _ * "NEW_VALIDATE_1" * "NEW_VALIDATE_1_0" * "NEW_VALIDATE_0" * _ * _ * _ * _ * _ -> "NEW_VALIDATE_1_0",
+_ * _ * "NEW_VALIDATE_1" * "NEW_VALIDATE_1_1" * "NEW_VALIDATE_1" * _ * _ * _ * _ * _ -> "NEW_VALIDATE_1_1",
+_ * _ * _ * _ * _ * _ * "Q_TASK2" * _ * "QUEUE_TASK2" * _ -> "TASKDISTRIBUTOR_W2_Q_TASK2",
+_ * _ * _ * _ * _ * _ * "Q_TASK1" * "QUEUE_TASK1" * _ * _ -> "TASKDISTRIBUTOR_W1_Q_TASK1",
+_ * _ * _ * _ * _ * _ * "R_TASK1_0_0" * "R_TASK1_0_0" * _ * _ -> "R_TASKDISTRIBUTOR_W1_Q_TASK1_0_0",
+_ * _ * _ * _ * _ * _ * "R_TASK1_0_1" * "R_TASK1_0_1" * _ * _ -> "R_TASKDISTRIBUTOR_W1_Q_TASK1_0_1",
+_ * _ * _ * _ * _ * _ * "R_TASK1_1_0" * "R_TASK1_1_0" * _ * _ -> "R_TASKDISTRIBUTOR_W1_Q_TASK1_1_0",
+_ * _ * _ * _ * _ * _ * "R_TASK1_1_1" * "R_TASK1_1_1" * _ * _ -> "R_TASKDISTRIBUTOR_W1_Q_TASK1_1_1",
+"Q_RUNWORKFLOW" * _ * _ * _ * _ * _ * _ * _ * _ * "Q_RUNWORKFLOW" -> "SCENARIO_RUNWORKFLOW",
+_ * _ * _ * _ * _ * _ * _ * _ * _ * "CALL_SCENARIO_WF" -> "CALL_SCENARIO_WF",
+_ * _ * _ * _ * _ * _ * "ERRORQUEUE" * _ * _ * _ -> "TASKDISTRIBUTOR_ERRORQUEUE",
+_ * _ * _ * _ * _ * _ * _ * _ * "ERRORQUEUE" * _ -> "W2_ERRORQUEUE",
+_ * _ * _ * _ * _ * _ * _ * "ERRORQUEUE" * _ * _ -> "W1_ERRORQUEUE",
+"ERRORQUEUE" * _ * _ * _ * _ * _ * _ * _ * _ * _ -> "WORKFLOW_ERRORQUEUE" 
+
+
+in
+"WorkFlow_Queue" ||"WorkFlow_Body"||"WorkFlow_Validate_Delegate"||"WorkFlow_Validate_Proxy_Manager"||"WorkFlow_Validate_Proxy"||"WorkFlow_Validate_Proxy"||"TaskDistributor"||"W1"||"W2"||"Scenario_WF"
+end par

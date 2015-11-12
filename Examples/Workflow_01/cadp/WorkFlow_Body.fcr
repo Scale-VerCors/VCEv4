@@ -1,0 +1,26 @@
+const Max_Proxy:nat is 2
+type IntType is 0..0
+type BoolType is 0..1
+type NatType is nat
+type FutureType is 0..1
+type Interval is 0..1
+process WorkFlow_Body
+[Serve_runWorkflow: none,
+Serve_Validate: in FutureType#Interval,
+Call_runWorkflow: none,
+Call_Validate: out FutureType#Interval]
+is
+states s0,s4,s3,s2,s1
+var x:Interval, fid:FutureType
+from s0
+	select 
+	Serve_runWorkflow; to s1
+	[]
+	Serve_Validate?fid, x; to s3
+	end
+from s1
+	Call_runWorkflow; to s0
+from s3
+	Call_Validate!fid, x; to s0
+
+WorkFlow_Body

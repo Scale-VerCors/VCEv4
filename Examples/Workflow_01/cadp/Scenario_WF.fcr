@@ -1,0 +1,16 @@
+const Max_Proxy:nat is 2
+type IntType is 0..0
+type BoolType is 0..1
+type NatType is nat
+process Scenario_WF
+[Call_Scenario_WF: none,
+Q_runWorkflow: none]
+is
+states s0,s1,s2
+
+from s0
+	Call_Scenario_WF; to s1
+from s1
+	Q_runWorkflow; to s2
+
+Scenario_WF

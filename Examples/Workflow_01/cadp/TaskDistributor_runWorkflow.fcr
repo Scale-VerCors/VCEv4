@@ -1,0 +1,45 @@
+const Max_Proxy:nat is 2
+type IntType is 0..0
+type BoolType is 0..1
+type NatType is nat
+type FutureType is 0..1
+type Interval is 0..1
+process TaskDistributor_runWorkflow
+[Call_runWorkflow: none,
+Get_Proxy_Task1: none,
+Q_Task2: none,
+Get_Value_Task1: out FutureType,
+R_runWorkflow: none,
+New_Task1: in FutureType,
+Q_Task1: out FutureType,
+Get_Proxy_Validate: none,
+R_Get_ValueTask1: in Interval,
+New_Validate: in FutureType,
+Q_Validate: out FutureType#Interval]
+is
+states s0,s9,s5,s6,s3,s8,s7,s10,s4,s2,s1
+var p_0:FutureType, x:Interval, p_1:FutureType
+from s0
+	Call_runWorkflow; to s1
+from s1
+	Get_Proxy_Task1; to s5
+from s2
+	Q_Task2; to s3
+from s3
+	Get_Value_Task1!p_0; to s8
+from s4
+	R_runWorkflow; to s0
+from s5
+	New_Task1?p_0; to s6
+from s6
+	Q_Task1!p_0; to s2
+from s7
+	Get_Proxy_Validate; to s9
+from s8
+	R_Get_ValueTask1?x; to s7
+from s9
+	New_Validate?p_1; to s10
+from s10
+	Q_Validate!p_1, x; to s4
+
+TaskDistributor_runWorkflow

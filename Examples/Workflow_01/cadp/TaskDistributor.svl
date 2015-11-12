@@ -1,0 +1,33 @@
+"TaskDistributor_runWorkflow_nr.bcg" = total rename
+"NEW_TASK1 !POS (\([0-9]*\))\(.*\)"->"NEW_TASK1_\1 \2",
+"GET_VALUE_TASK1 !POS (\([0-9]*\))\(.*\)"->"GET_VALUE_TASK1_\1 \2",
+"NEW_VALIDATE !POS (\([0-9]*\))\(.*\)"->"NEW_VALIDATE_\1 \2",
+"GET_VALUE_VALIDATE !POS (\([0-9]*\))\(.*\)"->"GET_VALUE_VALIDATE_\1 \2"
+in "TaskDistributor_runWorkflow.bcg";
+"TaskDistributor_runWorkflow.bcg" = "TaskDistributor_runWorkflow_nr.bcg";
+
+"TaskDistributor_Task1_Proxy_Manager_nr.bcg" = total rename
+"NEW_TASK1 !POS (\([0-9]*\))\(.*\)"->"NEW_TASK1_\1 \2"
+in "TaskDistributor_Task1_Proxy_Manager.bcg";
+"TaskDistributor_Task1_Proxy_Manager.bcg" = "TaskDistributor_Task1_Proxy_Manager_nr.bcg";
+
+"TaskDistributor_Task1_Proxy_nr.bcg" = total rename
+"NEW_VALIDATE !POS (\([0-9]*\))\(.*\)"->"NEW_VALIDATE_\1 \2"
+in "TaskDistributor_Task1_Proxy.bcg";
+"TaskDistributor_Task1_Proxy.bcg" = "TaskDistributor_Task1_Proxy_nr.bcg";
+
+"TaskDistributor_Validate_Proxy_Manager_nr.bcg" = total rename
+"R_TASK1 !POS (\([0-9]*\))\(.*\)"->"R_TASK1_\1 \2"
+in "TaskDistributor_Validate_Proxy_Manager.bcg";
+"TaskDistributor_Validate_Proxy_Manager.bcg" = "TaskDistributor_Validate_Proxy_Manager_nr.bcg";
+
+"TaskDistributor_Validate_Proxy_nr.bcg" = total rename
+"R_VALIDATE !POS (\([0-9]*\))\(.*\)"->"R_VALIDATE_\1 \2"
+in "TaskDistributor_Validate_Proxy.bcg";
+"TaskDistributor_Validate_Proxy.bcg" = "TaskDistributor_Validate_Proxy_nr.bcg";
+
+"TaskDistributor_nh.bcg"=  branching reduction of "TaskDistributor_SV.exp";
+
+"TaskDistributor.bcg" = branching reduction of gate hide
+"NEW_TASK1_.*", "R_RUNWORKFLOW", "CALL_RUNWORKFLOW", "R_GET_VALUEVALIDATE", "NEW_VALIDATE_.*", "GET_PROXY_VALIDATE", "GET_VALUE_TASK1_.*", "R_GET_VALUETASK1", "SERVE_RUNWORKFLOW", "GET_VALUE_VALIDATE_.*", "GET_PROXY_TASK1"
+in "TaskDistributor_nh.bcg"

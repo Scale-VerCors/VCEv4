@@ -1,0 +1,19 @@
+const Max_Proxy:nat is 2
+type IntType is 0..0
+type BoolType is 0..1
+type NatType is nat
+process TaskDistributor_Body
+[Serve_runWorkflow: none,
+Call_runWorkflow: none,
+R_runWorkflow: none]
+is
+states s0,s2,s1
+
+from s0
+	Serve_runWorkflow; to s1
+from s1
+	Call_runWorkflow; to s2
+from s2
+	R_runWorkflow; to s0
+
+TaskDistributor_Body

@@ -1,0 +1,20 @@
+-- Synch vectors for the assembly of <W1_Queue,W1_Body, W1_Task1()>
+-- with the following input specification:
+-- fid:0..1 -- IntInterval
+-- rr:0..1 -- IntInterval
+-- <W1_Queue,W1_Body, W1_Task1()>
+gate par using
+
+"Q_TASK1" * _ * _ -> "QUEUE_TASK1",
+"SERVE_TASK1" * "SERVE_TASK1" * _ -> "SERVE_TASK1",
+_ * "CALL_TASK1" * "CALL_TASK1" -> "CALL_TASK1",
+_ * "R_TASK1_0" * "R_TASK1_0" -> "R_TASK1_0_0",
+_ * "R_TASK1_0" * "R_TASK1_1" -> "R_TASK1_0_1",
+_ * "R_TASK1_1" * "R_TASK1_0" -> "R_TASK1_1_0",
+_ * "R_TASK1_1" * "R_TASK1_1" -> "R_TASK1_1_1",
+"ERRORQUEUE" * _ * _ -> "ERRORQUEUE" 
+
+
+in
+"W1_Queue" ||"W1_Body"||"W1_Task1"
+end par

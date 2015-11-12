@@ -1,0 +1,23 @@
+const Max_Proxy:nat is 2
+type IntType is 0..0
+type BoolType is 0..1
+type NatType is nat
+type Interval is 0..1
+process TaskDistributor_Task1_Proxy
+[New_Task1: none,
+R_Task1: in Interval,
+Get_Value_Task1: none,
+R_Get_ValueTask1: out Interval]
+is
+states s0,s2,s3,s1
+var val:Interval
+from s0
+	New_Task1; to s1
+from s1
+	R_Task1?val; to s2
+from s2
+	Get_Value_Task1; to s3
+from s3
+	R_Get_ValueTask1!val; to s0
+
+TaskDistributor_Task1_Proxy

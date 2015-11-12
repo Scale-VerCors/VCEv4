@@ -1,0 +1,17 @@
+const Max_Proxy:nat is 2
+type IntType is 0..0
+type BoolType is 0..1
+type NatType is nat
+type FutureType is 0..1
+process WorkFlow_Validate_Proxy
+[New_Validate: in FutureType,
+R_Validate: out FutureType]
+is
+states s0,s1
+var f:FutureType
+from s0
+	New_Validate?f; to s1
+from s1
+	R_Validate!f; to s0
+
+WorkFlow_Validate_Proxy

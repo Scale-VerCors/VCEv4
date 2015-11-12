@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vce:Architecture xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:vce="http://vce.components">
+  <components xsi:type="vce:Composite" name="WorkFlow">
+    <externalInterfaces name="S1">
+      <referencedInterface href="default.uml#_bie84OKVEeS_x5xkJFedWQ"/>
+    </externalInterfaces>
+    <externalInterfaces isServer="false" name="C3">
+      <referencedInterface href="default.uml#_a9yUYOKVEeS_x5xkJFedWQ"/>
+    </externalInterfaces>
+    <membrane>
+      <bindings sourceInterface="//@components.0/@externalInterfaces.0" targetInterface="//@components.0/@content/@internalInterfaces.0"/>
+      <bindings sourceInterface="//@components.0/@content/@internalInterfaces.1" targetInterface="//@components.0/@externalInterfaces.1"/>
+    </membrane>
+    <content>
+      <bindings sourceInterface="//@components.0/@content/@components.0/@externalInterfaces.0" targetInterface="//@components.0/@content/@components.1/@externalInterfaces.0"/>
+      <bindings sourceInterface="//@components.0/@content/@components.0/@externalInterfaces.1" targetInterface="//@components.0/@content/@components.2/@externalInterfaces.0"/>
+      <bindings sourceInterface="//@components.0/@content/@internalInterfaces.0" targetInterface="//@components.0/@content/@components.0/@externalInterfaces.3"/>
+      <bindings sourceInterface="//@components.0/@content/@components.0/@externalInterfaces.2" targetInterface="//@components.0/@content/@internalInterfaces.1"/>
+      <components xsi:type="vce:Primitive" name="TaskDistributor">
+        <externalInterfaces isServer="false" name="C1">
+          <referencedInterface href="default.uml#_YUZ3UOKVEeS_x5xkJFedWQ"/>
+        </externalInterfaces>
+        <externalInterfaces isServer="false" name="C2">
+          <referencedInterface href="default.uml#_aTSl4OKVEeS_x5xkJFedWQ"/>
+        </externalInterfaces>
+        <externalInterfaces isServer="false" name="C3">
+          <referencedInterface href="default.uml#_a9yUYOKVEeS_x5xkJFedWQ"/>
+        </externalInterfaces>
+        <externalInterfaces name="S1">
+          <referencedInterface href="default.uml#_bie84OKVEeS_x5xkJFedWQ"/>
+        </externalInterfaces>
+        <referencedClass href="default.uml#_s2VfwOKUEeS_x5xkJFedWQ"/>
+      </components>
+      <components xsi:type="vce:Primitive" name="W1">
+        <externalInterfaces name="S1">
+          <referencedInterface href="default.uml#_YUZ3UOKVEeS_x5xkJFedWQ"/>
+        </externalInterfaces>
+        <referencedClass href="default.uml#_l4TWoOKUEeS_x5xkJFedWQ"/>
+      </components>
+      <components xsi:type="vce:Primitive" name="W2">
+        <externalInterfaces name="S1">
+          <referencedInterface href="default.uml#_aTSl4OKVEeS_x5xkJFedWQ"/>
+        </externalInterfaces>
+        <referencedClass href="default.uml#_m3KyoOKUEeS_x5xkJFedWQ"/>
+      </components>
+      <internalInterfaces isServer="false" name="C1">
+        <referencedInterface href="default.uml#_bie84OKVEeS_x5xkJFedWQ"/>
+      </internalInterfaces>
+      <internalInterfaces name="S1">
+        <referencedInterface href="default.uml#_a9yUYOKVEeS_x5xkJFedWQ"/>
+      </internalInterfaces>
+    </content>
+  </components>
+</vce:Architecture>

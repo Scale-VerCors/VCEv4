@@ -1,0 +1,43 @@
+-- Synch vectors for the assembly of <TaskDistributor_Queue,TaskDistributor_Body, TaskDistributor_runWorkflow(), TaskDistributor_Task1_Proxy_Manager(p), TaskDistributor_Validate_Proxy_Manager(p), TaskDistributor_Task1_Proxy[p], TaskDistributor_Validate_Proxy[p]>
+-- with the following input specification:
+-- p:0..1 -- IntInterval
+-- cxval0:0..1 -- IntInterval
+-- cxval1:0..1 -- BoolType
+-- <TaskDistributor_Queue,TaskDistributor_Body, TaskDistributor_runWorkflow(), TaskDistributor_Task1_Proxy_Manager(p), TaskDistributor_Validate_Proxy_Manager(p), TaskDistributor_Task1_Proxy[p], TaskDistributor_Validate_Proxy[p]>
+gate par using
+
+"Q_RUNWORKFLOW" * _ * _ * _ * _ * _ * _ * _ * _ -> "QUEUE_RUNWORKFLOW",
+"SERVE_RUNWORKFLOW" * "SERVE_RUNWORKFLOW" * _ * _ * _ * _ * _ * _ * _ -> "SERVE_RUNWORKFLOW",
+_ * "CALL_RUNWORKFLOW" * "CALL_RUNWORKFLOW" * _ * _ * _ * _ * _ * _ -> "CALL_RUNWORKFLOW",
+_ * "R_RUNWORKFLOW" * "R_RUNWORKFLOW" * _ * _ * _ * _ * _ * _ -> "R_RUNWORKFLOW",
+_ * _ * "Q_TASK2" * _ * _ * _ * _ * _ * _ -> "Q_TASK2",
+_ * _ * "GET_PROXY_TASK1" * "GET_PROXY_TASK1" * _ * _ * _ * _ * _ -> "GET_PROXY_TASK1",
+_ * _ * "NEW_TASK1_0" * "NEW_TASK1_0" * _ * _ * "NEW_TASK1" * _ * _ -> "NEW_TASK1_0",
+_ * _ * "NEW_TASK1_1" * "NEW_TASK1_1" * _ * "NEW_TASK1" * _ * _ * _ -> "NEW_TASK1_1",
+_ * _ * "Q_TASK1" * _ * _ * _ * _ * _ * _ -> "Q_TASK1",
+_ * _ * "GET_VALUE_TASK1_0" * _ * _ * _ * "GET_VALUE_TASK1" * _ * _ -> "GET_VALUE_TASK1_0",
+_ * _ * "GET_VALUE_TASK1_1" * _ * _ * "GET_VALUE_TASK1" * _ * _ * _ -> "GET_VALUE_TASK1_1",
+_ * _ * "R_GET_VALUETASK1" * _ * _ * _ * "R_GET_VALUETASK1" * _ * _ -> "R_GET_VALUETASK1",
+_ * _ * "R_GET_VALUETASK1" * _ * _ * "R_GET_VALUETASK1" * _ * _ * _ -> "R_GET_VALUETASK1",
+_ * _ * "GET_PROXY_VALIDATE" * _ * "GET_PROXY_VALIDATE" * _ * _ * _ * _ -> "GET_PROXY_VALIDATE",
+_ * _ * "NEW_VALIDATE_0" * _ * "NEW_VALIDATE_0" * _ * _ * _ * "NEW_VALIDATE" -> "NEW_VALIDATE_0",
+_ * _ * "NEW_VALIDATE_1" * _ * "NEW_VALIDATE_1" * _ * _ * "NEW_VALIDATE" * _ -> "NEW_VALIDATE_1",
+_ * _ * "Q_VALIDATE" * _ * _ * _ * _ * _ * _ -> "Q_VALIDATE",
+_ * _ * "GET_VALUE_VALIDATE_0" * _ * _ * _ * _ * _ * "GET_VALUE_VALIDATE" -> "GET_VALUE_VALIDATE_0",
+_ * _ * "GET_VALUE_VALIDATE_1" * _ * _ * _ * _ * "GET_VALUE_VALIDATE" * _ -> "GET_VALUE_VALIDATE_1",
+_ * _ * "R_GET_VALUEVALIDATE" * _ * _ * _ * _ * _ * "R_GET_VALUEVALIDATE" -> "R_GET_VALUEVALIDATE",
+_ * _ * "R_GET_VALUEVALIDATE" * _ * _ * _ * _ * "R_GET_VALUEVALIDATE" * _ -> "R_GET_VALUEVALIDATE",
+_ * _ * _ * _ * _ * _ * "R_TASK1_0" * _ * _ -> "R_TASK1_0_0",
+_ * _ * _ * _ * _ * "R_TASK1_0" * _ * _ * _ -> "R_TASK1_1_0",
+_ * _ * _ * _ * _ * _ * "R_TASK1_1" * _ * _ -> "R_TASK1_0_1",
+_ * _ * _ * _ * _ * "R_TASK1_1" * _ * _ * _ -> "R_TASK1_1_1",
+_ * _ * _ * _ * _ * _ * _ * _ * "R_VALIDATE_0" -> "R_VALIDATE_0_0",
+_ * _ * _ * _ * _ * _ * _ * "R_VALIDATE_0" * _ -> "R_VALIDATE_1_0",
+_ * _ * _ * _ * _ * _ * _ * _ * "R_VALIDATE_1" -> "R_VALIDATE_0_1",
+_ * _ * _ * _ * _ * _ * _ * "R_VALIDATE_1" * _ -> "R_VALIDATE_1_1",
+"ERRORQUEUE" * _ * _ * _ * _ * _ * _ * _ * _ -> "ERRORQUEUE" 
+
+
+in
+"TaskDistributor_Queue" ||"TaskDistributor_Body"||"TaskDistributor_runWorkflow"||"TaskDistributor_Task1_Proxy_Manager"||"TaskDistributor_Validate_Proxy_Manager"||"TaskDistributor_Task1_Proxy"||"TaskDistributor_Task1_Proxy"||"TaskDistributor_Validate_Proxy"||"TaskDistributor_Validate_Proxy"
+end par

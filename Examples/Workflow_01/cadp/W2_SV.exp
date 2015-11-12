@@ -1,0 +1,15 @@
+-- Synch vectors for the assembly of <W2_Queue,W2_Body, W2_Task2()>
+-- with the following input specification:
+-- <W2_Queue,W2_Body, W2_Task2()>
+gate par using
+
+"Q_TASK2" * _ * _ -> "QUEUE_TASK2",
+"SERVE_TASK2" * "SERVE_TASK2" * _ -> "SERVE_TASK2",
+_ * "CALL_TASK2" * "CALL_TASK2" -> "CALL_TASK2",
+_ * "R_TASK2" * "R_TASK2" -> "R_TASK2",
+"ERRORQUEUE" * _ * _ -> "ERRORQUEUE" 
+
+
+in
+"W2_Queue" ||"W2_Body"||"W2_Task2"
+end par
