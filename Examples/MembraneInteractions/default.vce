@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vce:Architecture xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:vce="http://vce.components">
+  <components xsi:type="vce:Composite" name="Compos" isActivated="true">
+    <externalInterfaces isFunctional="false" name="S1">
+      <referencedInterface href="default.uml#_6kFCcMQ-EeWmuLoFnqLTwA"/>
+    </externalInterfaces>
+    <externalInterfaces isFunctional="false" name="S2">
+      <referencedInterface href="default.uml#_7J66cMQ-EeWmuLoFnqLTwA"/>
+    </externalInterfaces>
+    <externalInterfaces isServer="false" isFunctional="false" name="S3">
+      <referencedInterface href="default.uml#_7nN6cMQ-EeWmuLoFnqLTwA"/>
+    </externalInterfaces>
+    <membrane>
+      <components xsi:type="vce:Primitive" name="Comp1" isActivated="true">
+        <externalInterfaces name="S1">
+          <referencedInterface href="default.uml#_7J66cMQ-EeWmuLoFnqLTwA"/>
+        </externalInterfaces>
+        <externalInterfaces isServer="false" name="C1">
+          <referencedInterface href="default.uml#_FApSgMRAEeWmuLoFnqLTwA"/>
+        </externalInterfaces>
+        <externalInterfaces name="S2">
+          <referencedInterface href="default.uml#_JDO-MMRAEeWmuLoFnqLTwA"/>
+        </externalInterfaces>
+        <externalInterfaces isServer="false" name="C2">
+          <referencedInterface href="default.uml#_7nN6cMQ-EeWmuLoFnqLTwA"/>
+        </externalInterfaces>
+        <referencedClass href="default.uml#_3629cMQ-EeWmuLoFnqLTwA"/>
+      </components>
+      <bindings sourceInterface="//@components.0/@externalInterfaces.0" targetInterface="//@components.0/@content/@internalInterfaces.0" isActivated="true"/>
+      <bindings sourceInterface="//@components.0/@externalInterfaces.1" targetInterface="//@components.0/@membrane/@components.0/@externalInterfaces.0" isActivated="true"/>
+      <bindings sourceInterface="//@components.0/@membrane/@components.0/@externalInterfaces.1" targetInterface="//@components.0/@content/@internalInterfaces.1" isActivated="true"/>
+      <bindings sourceInterface="//@components.0/@membrane/@components.0/@externalInterfaces.3" targetInterface="//@components.0/@externalInterfaces.2" isActivated="true"/>
+      <bindings sourceInterface="//@components.0/@content/@internalInterfaces.2" targetInterface="//@components.0/@membrane/@components.0/@externalInterfaces.2" isActivated="true"/>
+    </membrane>
+    <content>
+      <bindings sourceInterface="//@components.0/@content/@internalInterfaces.0" targetInterface="//@components.0/@content/@components.0/@externalInterfaces.0" isActivated="true"/>
+      <bindings sourceInterface="//@components.0/@content/@internalInterfaces.1" targetInterface="//@components.0/@content/@components.0/@externalInterfaces.1" isActivated="true"/>
+      <bindings sourceInterface="//@components.0/@content/@components.0/@externalInterfaces.2" targetInterface="//@components.0/@content/@internalInterfaces.2" isActivated="true"/>
+      <components xsi:type="vce:Primitive" name="Comp2" isActivated="true">
+        <externalInterfaces isFunctional="false" name="S1">
+          <referencedInterface href="default.uml#_6kFCcMQ-EeWmuLoFnqLTwA"/>
+        </externalInterfaces>
+        <externalInterfaces isFunctional="false" name="S2">
+          <referencedInterface href="default.uml#_FApSgMRAEeWmuLoFnqLTwA"/>
+        </externalInterfaces>
+        <externalInterfaces isServer="false" isFunctional="false" name="C1">
+          <referencedInterface href="default.uml#_JDO-MMRAEeWmuLoFnqLTwA"/>
+        </externalInterfaces>
+        <referencedClass href="default.uml#_4830EMQ-EeWmuLoFnqLTwA"/>
+      </components>
+      <internalInterfaces isServer="false" isFunctional="false" name="C1">
+        <referencedInterface href="default.uml#_6kFCcMQ-EeWmuLoFnqLTwA"/>
+      </internalInterfaces>
+      <internalInterfaces isServer="false" isFunctional="false" name="C2">
+        <referencedInterface href="default.uml#_FApSgMRAEeWmuLoFnqLTwA"/>
+      </internalInterfaces>
+      <internalInterfaces isFunctional="false" name="S4">
+        <referencedInterface href="default.uml#_JDO-MMRAEeWmuLoFnqLTwA"/>
+      </internalInterfaces>
+    </content>
+  </components>
+</vce:Architecture>

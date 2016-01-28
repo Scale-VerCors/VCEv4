@@ -1,0 +1,46 @@
+const Max_Proxy:nat is 2
+type IntType is 0..0
+type BoolType is bool
+type NatType is nat
+type FutureType is 0..1
+type ArrayType is array Max_Proxy of BoolType
+process Compos_f2_PM
+[Recycle_f2: in FutureType,
+Get_Proxy_f2: in FutureType,
+New_f2: out FutureType#FutureType,
+Error_NO_MORE_PROXY: none]
+is
+states s0,s2,s3,s1
+var Pool_Proxy:ArrayType := [true,true], p:FutureType, f:FutureType
+from s0
+	select 
+	Recycle_f2?p; Pool_Proxy[p]:=true; to s0
+[]
+	Get_Proxy_f2?f; p:=0; to s1
+	end select
+from s1
+	select 
+	Recycle_f2?p; Pool_Proxy[p]:=true; to s1
+[]
+	if Pool_Proxy[p] = false then
+	to s2
+		end if 
+[]
+	if Pool_Proxy[p] = true then
+	New_f2!p, f; Pool_Proxy[p]:=false; to s0
+		end if 
+	end select
+from s2
+	select 
+	Recycle_f2?p; Pool_Proxy[p]:=true; to s1
+[]
+	if p = Max_Proxy - 1 then
+	Error_NO_MORE_PROXY; to s3
+		end if 
+[]
+	if p < Max_Proxy - 1 then
+	p:=p + 1; to s1
+		end if 
+	end select
+
+Compos_f2_PM

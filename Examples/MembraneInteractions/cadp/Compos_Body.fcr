@@ -1,0 +1,78 @@
+const Max_Proxy:nat is 2
+type IntType is 0..0
+type BoolType is bool
+type NatType is nat
+type FutureType is 0..1
+process Compos_Body
+[Serve_f1: in FutureType,
+Serve_f2: in FutureType,
+Serve_f5: in FutureType,
+Serve_f3: in FutureType,
+Serve_f4: in FutureType,
+Call_f1: out FutureType,
+R_f1: none,
+Call_f2: out FutureType,
+R_f2: none,
+Call_f5: out FutureType,
+R_f5: none,
+Call_f3: out FutureType,
+R_f3: none,
+Call_f4: out FutureType,
+R_f4: none]
+is
+states s0,s5,s6,s3,s7,s10,s8,s9,s2,s4,s1
+var fid:FutureType
+from s0
+	select 
+	Serve_f1?fid; to s1
+[]
+	Serve_f2?fid; to s3
+[]
+	Serve_f5?fid; to s5
+[]
+	Serve_f3?fid; to s7
+[]
+	Serve_f4?fid; to s9
+	end select
+from s1
+	select 
+	Call_f1!fid; to s2
+	end select
+from s2
+	select 
+	R_f1; to s0
+	end select
+from s3
+	select 
+	Call_f2!fid; to s4
+	end select
+from s4
+	select 
+	R_f2; to s0
+	end select
+from s5
+	select 
+	Call_f5!fid; to s6
+	end select
+from s6
+	select 
+	R_f5; to s0
+	end select
+from s7
+	select 
+	Call_f3!fid; to s8
+	end select
+from s8
+	select 
+	R_f3; to s0
+	end select
+from s9
+	select 
+	Call_f4!fid; to s10
+	end select
+from s10
+	select 
+	R_f4; to s0
+	end select
+
+Compos_Body

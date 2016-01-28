@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vcetypes:VCETypesContainer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:vcetypes="http://www.example.org/vcetypes">
+  <boolType name="BoolType"/>
+  <intType name="IntType"/>
+  <natType name="NatType"/>
+  <voidType name="VoidType"/>
+</vcetypes:VCETypesContainer>

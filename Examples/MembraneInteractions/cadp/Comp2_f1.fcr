@@ -1,0 +1,51 @@
+const Max_Proxy:nat is 2
+type IntType is 0..0
+type BoolType is bool
+type NatType is nat
+type FutureType is 0..1
+process Comp2_f1
+[Call_f1: none,
+Get_Proxy_f5: none,
+Get_Value_f5: out FutureType,
+New_f5: in FutureType,
+Q_f5: out FutureType,
+R_f1: out BoolType,
+R_Get_Valuef5: in BoolType,
+Recycle_f5: out FutureType]
+is
+states s0,s6,s1,s5,s4,s7,s2,s3
+var p_3:FutureType, b1:BoolType
+from s0
+	select 
+	Call_f1; to s1
+	end select
+from s1
+	select 
+	Get_Proxy_f5; to s3
+	end select
+from s2
+	select 
+	Get_Value_f5!p_3; to s6
+	end select
+from s3
+	select 
+	New_f5?p_3; to s4
+	end select
+from s4
+	select 
+	Q_f5!p_3; to s2
+	end select
+from s5
+	select 
+	R_f1!b1; to s0
+	end select
+from s6
+	select 
+	R_Get_Valuef5?b1; to s7
+	end select
+from s7
+	select 
+	Recycle_f5!p_3; to s5
+	end select
+
+Comp2_f1

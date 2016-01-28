@@ -1,0 +1,21 @@
+const Max_Proxy:nat is 2
+type IntType is 0..0
+type BoolType is bool
+type NatType is nat
+type FutureType is 0..1
+process Compos_f2_Proxy
+[New_f2: in FutureType,
+R_f2: out FutureType]
+is
+states s0,s1
+var f:FutureType
+from s0
+	select 
+	New_f2?f; to s1
+	end select
+from s1
+	select 
+	R_f2!f; to s0
+	end select
+
+Compos_f2_Proxy

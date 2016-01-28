@@ -1,0 +1,320 @@
+"Compos_f1_Delegate_nr.bcg" = total rename
+"NEW_F1 !POS (\([0-9]*\))\(.*\)"->"NEW_F1_\1 \2",
+"Q_F1 !POS (\([0-9]*\))\(.*\)"->"Q_F1_\1 \2"
+in "Compos_f1_Delegate.bcg";
+"Compos_f1_Delegate.bcg" = "Compos_f1_Delegate_nr.bcg";
+
+"Compos_f2_Delegate_nr.bcg" = total rename
+"NEW_F2 !POS (\([0-9]*\))\(.*\)"->"NEW_F2_\1 \2",
+"Q_F2 !POS (\([0-9]*\))\(.*\)"->"Q_F2_\1 \2"
+in "Compos_f2_Delegate.bcg";
+"Compos_f2_Delegate.bcg" = "Compos_f2_Delegate_nr.bcg";
+
+"Compos_f5_Delegate_nr.bcg" = total rename
+"NEW_F5 !POS (\([0-9]*\))\(.*\)"->"NEW_F5_\1 \2",
+"Q_F5 !POS (\([0-9]*\))\(.*\)"->"Q_F5_\1 \2"
+in "Compos_f5_Delegate.bcg";
+"Compos_f5_Delegate.bcg" = "Compos_f5_Delegate_nr.bcg";
+
+"Compos_f3_Delegate_nr.bcg" = total rename
+"NEW_F3 !POS (\([0-9]*\))\(.*\)"->"NEW_F3_\1 \2",
+"Q_F3 !POS (\([0-9]*\))\(.*\)"->"Q_F3_\1 \2"
+in "Compos_f3_Delegate.bcg";
+"Compos_f3_Delegate.bcg" = "Compos_f3_Delegate_nr.bcg";
+
+"Compos_f4_Delegate_nr.bcg" = total rename
+"NEW_F4 !POS (\([0-9]*\))\(.*\)"->"NEW_F4_\1 \2",
+"Q_F4 !POS (\([0-9]*\))\(.*\)"->"Q_F4_\1 \2"
+in "Compos_f4_Delegate.bcg";
+"Compos_f4_Delegate.bcg" = "Compos_f4_Delegate_nr.bcg";
+
+"Compos_f1_PM_nr.bcg" = total rename
+"NEW_F1 !POS (\([0-9]*\)) !POS (\([0-9]*\))\(.*\)"->"NEW_F1_\1_\2 \3",
+"RECYCLE_F1 !POS (\([0-9]*\))\(.*\)"->"RECYCLE_F1_\1 \2"
+in "Compos_f1_PM.bcg";
+"Compos_f1_PM.bcg" = "Compos_f1_PM_nr.bcg";
+
+"Compos_f2_PM_nr.bcg" = total rename
+"NEW_F2 !POS (\([0-9]*\)) !POS (\([0-9]*\))\(.*\)"->"NEW_F2_\1_\2 \3",
+"RECYCLE_F2 !POS (\([0-9]*\))\(.*\)"->"RECYCLE_F2_\1 \2"
+in "Compos_f2_PM.bcg";
+"Compos_f2_PM.bcg" = "Compos_f2_PM_nr.bcg";
+
+"Compos_f5_PM_nr.bcg" = total rename
+"NEW_F5 !POS (\([0-9]*\)) !POS (\([0-9]*\))\(.*\)"->"NEW_F5_\1_\2 \3",
+"RECYCLE_F5 !POS (\([0-9]*\))\(.*\)"->"RECYCLE_F5_\1 \2"
+in "Compos_f5_PM.bcg";
+"Compos_f5_PM.bcg" = "Compos_f5_PM_nr.bcg";
+
+"Compos_f3_PM_nr.bcg" = total rename
+"NEW_F3 !POS (\([0-9]*\)) !POS (\([0-9]*\))\(.*\)"->"NEW_F3_\1_\2 \3",
+"RECYCLE_F3 !POS (\([0-9]*\))\(.*\)"->"RECYCLE_F3_\1 \2"
+in "Compos_f3_PM.bcg";
+"Compos_f3_PM.bcg" = "Compos_f3_PM_nr.bcg";
+
+"Compos_f4_PM_nr.bcg" = total rename
+"NEW_F4 !POS (\([0-9]*\)) !POS (\([0-9]*\))\(.*\)"->"NEW_F4_\1_\2 \3",
+"RECYCLE_F4 !POS (\([0-9]*\))\(.*\)"->"RECYCLE_F4_\1 \2"
+in "Compos_f4_PM.bcg";
+"Compos_f4_PM.bcg" = "Compos_f4_PM_nr.bcg";
+
+"Compos_f1_Proxy_nr.bcg" = total rename
+"NEW_F1 !POS (\([0-9]*\))\(.*\)"->"NEW_F1_\1 \2",
+"R_F1 !POS (\([0-9]*\))\(.*\)"->"R_F1_\1 \2"
+in "Compos_f1_Proxy.bcg";
+"Compos_f1_Proxy.bcg" = "Compos_f1_Proxy_nr.bcg";
+
+"Compos_f2_Proxy_nr.bcg" = total rename
+"NEW_F2 !POS (\([0-9]*\))\(.*\)"->"NEW_F2_\1 \2",
+"R_F2 !POS (\([0-9]*\))\(.*\)"->"R_F2_\1 \2"
+in "Compos_f2_Proxy.bcg";
+"Compos_f2_Proxy.bcg" = "Compos_f2_Proxy_nr.bcg";
+
+"Compos_f5_Proxy_nr.bcg" = total rename
+"NEW_F5 !POS (\([0-9]*\))\(.*\)"->"NEW_F5_\1 \2",
+"R_F5 !POS (\([0-9]*\))\(.*\)"->"R_F5_\1 \2"
+in "Compos_f5_Proxy.bcg";
+"Compos_f5_Proxy.bcg" = "Compos_f5_Proxy_nr.bcg";
+
+"Compos_f3_Proxy_nr.bcg" = total rename
+"NEW_F3 !POS (\([0-9]*\))\(.*\)"->"NEW_F3_\1 \2",
+"R_F3 !POS (\([0-9]*\))\(.*\)"->"R_F3_\1 \2"
+in "Compos_f3_Proxy.bcg";
+"Compos_f3_Proxy.bcg" = "Compos_f3_Proxy_nr.bcg";
+
+"Compos_f4_Proxy_nr.bcg" = total rename
+"NEW_F4 !POS (\([0-9]*\))\(.*\)"->"NEW_F4_\1 \2",
+"R_F4 !POS (\([0-9]*\))\(.*\)"->"R_F4_\1 \2"
+in "Compos_f4_Proxy.bcg";
+"Compos_f4_Proxy.bcg" = "Compos_f4_Proxy_nr.bcg";
+
+"Compos_Comp2_nr.bcg" = total rename
+"QUEUE_F1 !POS (\([0-9]*\))\(.*\)"->"QUEUE_F1_\1 \2",
+"R_F1 !POS (\([0-9]*\)) !\([TRUE|FALSE]*\)\(.*\)"->"R_F1_\1_\2 \3",
+"R_F5 !POS (\([0-9]*\)) !\([TRUE|FALSE]*\)\(.*\)"->"R_F5_\1_\2 \3",
+"QUEUE_F4 !POS (\([0-9]*\))\(.*\)"->"QUEUE_F4_\1 \2",
+"R_F4 !POS (\([0-9]*\)) !\([TRUE|FALSE]*\)\(.*\)"->"R_F4_\1_\2 \3"
+in "Compos_Comp2.bcg";
+"Compos_Comp2.bcg" = "Compos_Comp2_nr.bcg";
+
+"Compos_Comp1_nr.bcg" = total rename
+"QUEUE_F2 !POS (\([0-9]*\))\(.*\)"->"QUEUE_F2_\1 \2",
+"R_F2 !POS (\([0-9]*\)) !\([TRUE|FALSE]*\)\(.*\)"->"R_F2_\1_\2 \3",
+"QUEUE_F5 !POS (\([0-9]*\))\(.*\)"->"QUEUE_F5_\1 \2",
+"R_F3 !POS (\([0-9]*\)) !\([TRUE|FALSE]*\)\(.*\)"->"R_F3_\1_\2 \3"
+in "Compos_Comp1.bcg";
+"Compos_Comp1.bcg" = "Compos_Comp1_nr.bcg";
+
+"Compos_Body_nr.bcg" = multiple rename
+"_TRUE" -> "_1",
+"!TRUE" -> "!POS (1)"
+
+in "Compos_Body.bcg";
+"Compos_Body.bcg" = "Compos_Body_nr.bcg";
+
+"Compos_f1_Delegate_nr.bcg" = multiple rename
+"_TRUE" -> "_1",
+"!TRUE" -> "!POS (1)"
+
+in "Compos_f1_Delegate.bcg";
+"Compos_f1_Delegate.bcg" = "Compos_f1_Delegate_nr.bcg";
+
+"Compos_f2_Delegate_nr.bcg" = multiple rename
+"_TRUE" -> "_1",
+"!TRUE" -> "!POS (1)"
+
+in "Compos_f2_Delegate.bcg";
+"Compos_f2_Delegate.bcg" = "Compos_f2_Delegate_nr.bcg";
+
+"Compos_f5_Delegate_nr.bcg" = multiple rename
+"_TRUE" -> "_1",
+"!TRUE" -> "!POS (1)"
+
+in "Compos_f5_Delegate.bcg";
+"Compos_f5_Delegate.bcg" = "Compos_f5_Delegate_nr.bcg";
+
+"Compos_f3_Delegate_nr.bcg" = multiple rename
+"_TRUE" -> "_1",
+"!TRUE" -> "!POS (1)"
+
+in "Compos_f3_Delegate.bcg";
+"Compos_f3_Delegate.bcg" = "Compos_f3_Delegate_nr.bcg";
+
+"Compos_f4_Delegate_nr.bcg" = multiple rename
+"_TRUE" -> "_1",
+"!TRUE" -> "!POS (1)"
+
+in "Compos_f4_Delegate.bcg";
+"Compos_f4_Delegate.bcg" = "Compos_f4_Delegate_nr.bcg";
+
+"Compos_f1_PM_nr.bcg" = multiple rename
+"_TRUE" -> "_1",
+"!TRUE" -> "!POS (1)"
+
+in "Compos_f1_PM.bcg";
+"Compos_f1_PM.bcg" = "Compos_f1_PM_nr.bcg";
+
+"Compos_f2_PM_nr.bcg" = multiple rename
+"_TRUE" -> "_1",
+"!TRUE" -> "!POS (1)"
+
+in "Compos_f2_PM.bcg";
+"Compos_f2_PM.bcg" = "Compos_f2_PM_nr.bcg";
+
+"Compos_f5_PM_nr.bcg" = multiple rename
+"_TRUE" -> "_1",
+"!TRUE" -> "!POS (1)"
+
+in "Compos_f5_PM.bcg";
+"Compos_f5_PM.bcg" = "Compos_f5_PM_nr.bcg";
+
+"Compos_f3_PM_nr.bcg" = multiple rename
+"_TRUE" -> "_1",
+"!TRUE" -> "!POS (1)"
+
+in "Compos_f3_PM.bcg";
+"Compos_f3_PM.bcg" = "Compos_f3_PM_nr.bcg";
+
+"Compos_f4_PM_nr.bcg" = multiple rename
+"_TRUE" -> "_1",
+"!TRUE" -> "!POS (1)"
+
+in "Compos_f4_PM.bcg";
+"Compos_f4_PM.bcg" = "Compos_f4_PM_nr.bcg";
+
+"Compos_f1_Proxy_nr.bcg" = multiple rename
+"_TRUE" -> "_1",
+"!TRUE" -> "!POS (1)"
+
+in "Compos_f1_Proxy.bcg";
+"Compos_f1_Proxy.bcg" = "Compos_f1_Proxy_nr.bcg";
+
+"Compos_f2_Proxy_nr.bcg" = multiple rename
+"_TRUE" -> "_1",
+"!TRUE" -> "!POS (1)"
+
+in "Compos_f2_Proxy.bcg";
+"Compos_f2_Proxy.bcg" = "Compos_f2_Proxy_nr.bcg";
+
+"Compos_f5_Proxy_nr.bcg" = multiple rename
+"_TRUE" -> "_1",
+"!TRUE" -> "!POS (1)"
+
+in "Compos_f5_Proxy.bcg";
+"Compos_f5_Proxy.bcg" = "Compos_f5_Proxy_nr.bcg";
+
+"Compos_f3_Proxy_nr.bcg" = multiple rename
+"_TRUE" -> "_1",
+"!TRUE" -> "!POS (1)"
+
+in "Compos_f3_Proxy.bcg";
+"Compos_f3_Proxy.bcg" = "Compos_f3_Proxy_nr.bcg";
+
+"Compos_f4_Proxy_nr.bcg" = multiple rename
+"_TRUE" -> "_1",
+"!TRUE" -> "!POS (1)"
+
+in "Compos_f4_Proxy.bcg";
+"Compos_f4_Proxy.bcg" = "Compos_f4_Proxy_nr.bcg";
+
+"Compos_Body_nr.bcg" = multiple rename
+"_FALSE" -> "_0",
+"!FALSE" -> "!POS (0)"
+in "Compos_Body.bcg";
+"Compos_Body.bcg" = "Compos_Body_nr.bcg";
+
+"Compos_f1_Delegate_nr.bcg" = multiple rename
+"_FALSE" -> "_0",
+"!FALSE" -> "!POS (0)"
+in "Compos_f1_Delegate.bcg";
+"Compos_f1_Delegate.bcg" = "Compos_f1_Delegate_nr.bcg";
+
+"Compos_f2_Delegate_nr.bcg" = multiple rename
+"_FALSE" -> "_0",
+"!FALSE" -> "!POS (0)"
+in "Compos_f2_Delegate.bcg";
+"Compos_f2_Delegate.bcg" = "Compos_f2_Delegate_nr.bcg";
+
+"Compos_f5_Delegate_nr.bcg" = multiple rename
+"_FALSE" -> "_0",
+"!FALSE" -> "!POS (0)"
+in "Compos_f5_Delegate.bcg";
+"Compos_f5_Delegate.bcg" = "Compos_f5_Delegate_nr.bcg";
+
+"Compos_f3_Delegate_nr.bcg" = multiple rename
+"_FALSE" -> "_0",
+"!FALSE" -> "!POS (0)"
+in "Compos_f3_Delegate.bcg";
+"Compos_f3_Delegate.bcg" = "Compos_f3_Delegate_nr.bcg";
+
+"Compos_f4_Delegate_nr.bcg" = multiple rename
+"_FALSE" -> "_0",
+"!FALSE" -> "!POS (0)"
+in "Compos_f4_Delegate.bcg";
+"Compos_f4_Delegate.bcg" = "Compos_f4_Delegate_nr.bcg";
+
+"Compos_f1_PM_nr.bcg" = multiple rename
+"_FALSE" -> "_0",
+"!FALSE" -> "!POS (0)"
+in "Compos_f1_PM.bcg";
+"Compos_f1_PM.bcg" = "Compos_f1_PM_nr.bcg";
+
+"Compos_f2_PM_nr.bcg" = multiple rename
+"_FALSE" -> "_0",
+"!FALSE" -> "!POS (0)"
+in "Compos_f2_PM.bcg";
+"Compos_f2_PM.bcg" = "Compos_f2_PM_nr.bcg";
+
+"Compos_f5_PM_nr.bcg" = multiple rename
+"_FALSE" -> "_0",
+"!FALSE" -> "!POS (0)"
+in "Compos_f5_PM.bcg";
+"Compos_f5_PM.bcg" = "Compos_f5_PM_nr.bcg";
+
+"Compos_f3_PM_nr.bcg" = multiple rename
+"_FALSE" -> "_0",
+"!FALSE" -> "!POS (0)"
+in "Compos_f3_PM.bcg";
+"Compos_f3_PM.bcg" = "Compos_f3_PM_nr.bcg";
+
+"Compos_f4_PM_nr.bcg" = multiple rename
+"_FALSE" -> "_0",
+"!FALSE" -> "!POS (0)"
+in "Compos_f4_PM.bcg";
+"Compos_f4_PM.bcg" = "Compos_f4_PM_nr.bcg";
+
+"Compos_f1_Proxy_nr.bcg" = multiple rename
+"_FALSE" -> "_0",
+"!FALSE" -> "!POS (0)"
+in "Compos_f1_Proxy.bcg";
+"Compos_f1_Proxy.bcg" = "Compos_f1_Proxy_nr.bcg";
+
+"Compos_f2_Proxy_nr.bcg" = multiple rename
+"_FALSE" -> "_0",
+"!FALSE" -> "!POS (0)"
+in "Compos_f2_Proxy.bcg";
+"Compos_f2_Proxy.bcg" = "Compos_f2_Proxy_nr.bcg";
+
+"Compos_f5_Proxy_nr.bcg" = multiple rename
+"_FALSE" -> "_0",
+"!FALSE" -> "!POS (0)"
+in "Compos_f5_Proxy.bcg";
+"Compos_f5_Proxy.bcg" = "Compos_f5_Proxy_nr.bcg";
+
+"Compos_f3_Proxy_nr.bcg" = multiple rename
+"_FALSE" -> "_0",
+"!FALSE" -> "!POS (0)"
+in "Compos_f3_Proxy.bcg";
+"Compos_f3_Proxy.bcg" = "Compos_f3_Proxy_nr.bcg";
+
+"Compos_f4_Proxy_nr.bcg" = multiple rename
+"_FALSE" -> "_0",
+"!FALSE" -> "!POS (0)"
+in "Compos_f4_Proxy.bcg";
+"Compos_f4_Proxy.bcg" = "Compos_f4_Proxy_nr.bcg";
+
+"Compos_nh.bcg"=  branching reduction of "Compos_SV.exp";
+
+"Compos.bcg" = branching reduction of gate hide
+
+in "Compos_nh.bcg"

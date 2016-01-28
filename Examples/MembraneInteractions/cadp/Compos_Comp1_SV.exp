@@ -1,0 +1,60 @@
+-- Synch vectors for the assembly of <Comp1_Queue,Comp1_Body, Comp1_f2(), Comp1_f5(), Comp1_f4_PM(p), Comp1_f3_PM(p), Comp1_f4_Proxy[p], Comp1_f3_Proxy[p]>
+-- with the following input specification:
+-- p:0..1 -- IntInterval
+-- cxval1:0..1 -- IntInterval
+-- fid:0..1 -- IntInterval
+-- rr:0..1 -- IntInterval
+-- cxval0:0..1 -- IntInterval
+-- <Comp1_Queue(), Comp1_Body, Comp1_f2, Comp1_f5, Comp1_f4_PM(p), Comp1_f3_PM(p), Comp1_f4_Proxy[p], Comp1_f3_Proxy[p]>
+gate par using
+
+_ * "CALL_F5" * _ * "CALL_F5" * _ * _ * _ * _ * _ * _ -> "CALL_F5",
+_ * _ * _ * "GET_PROXY_F4" * "GET_PROXY_F4" * _ * _ * _ * _ * _ -> "GET_PROXY_F4",
+_ * _ * _ * "GET_VALUE_F4_0" * _ * _ * _ * "GET_VALUE_F4" * _ * _ -> "GET_VALUE_F4_0",
+_ * _ * _ * "GET_VALUE_F4_1" * _ * _ * "GET_VALUE_F4" * _ * _ * _ -> "GET_VALUE_F4_1",
+_ * _ * _ * "R_GET_VALUEF3" * _ * _ * _ * _ * _ * "R_GET_VALUEF3" -> "R_GET_VALUEF3",
+_ * _ * _ * "R_GET_VALUEF3" * _ * _ * _ * _ * "R_GET_VALUEF3" * _ -> "R_GET_VALUEF3",
+_ * _ * _ * "RECYCLE_F3_0" * _ * "RECYCLE_F3_0" * _ * _ * _ * "RECYCLE_F3" -> "RECYCLE_F3_0",
+_ * _ * _ * "RECYCLE_F3_1" * _ * "RECYCLE_F3_1" * _ * _ * "RECYCLE_F3" * _ -> "RECYCLE_F3_1",
+"SERVE_F2" * "SERVE_F2" * _ * _ * _ * _ * _ * _ * _ * _ -> "SERVE_F2",
+_ * _ * _ * _ * _ * "ERROR_NO_MORE_PROXY" * _ * _ * _ * _ -> "ERROR_NO_MORE_PROXY",
+"Q_F2" * _ * _ * _ * _ * _ * _ * _ * _ * _ -> "QUEUE_F2",
+"Q_F5" * _ * _ * _ * _ * _ * _ * _ * _ * _ -> "QUEUE_F5",
+_ * _ * _ * _ * "ERROR_NO_MORE_PROXY" * _ * _ * _ * _ * _ -> "ERROR_NO_MORE_PROXY",
+"ERRORQUEUE" * _ * _ * _ * _ * _ * _ * _ * _ * _ -> "ERRORQUEUE",
+_ * _ * _ * "Q_F4" * _ * _ * _ * _ * _ * _ -> "Q_F4",
+_ * _ * _ * _ * _ * _ * _ * _ * _ * "R_F3_0" -> "R_F3_0_0",
+_ * _ * _ * _ * _ * _ * _ * _ * "R_F3_0" * _ -> "R_F3_1_0",
+_ * _ * _ * _ * _ * _ * _ * _ * _ * "R_F3_1" -> "R_F3_0_1",
+_ * _ * _ * _ * _ * _ * _ * _ * "R_F3_1" * _ -> "R_F3_1_1",
+_ * "R_F5_0" * _ * "R_F5_0" * _ * _ * _ * _ * _ * _ -> "R_F5_0_0",
+_ * "R_F5_0" * _ * "R_F5_1" * _ * _ * _ * _ * _ * _ -> "R_F5_0_1",
+_ * "R_F5_1" * _ * "R_F5_0" * _ * _ * _ * _ * _ * _ -> "R_F5_1_0",
+_ * "R_F5_1" * _ * "R_F5_1" * _ * _ * _ * _ * _ * _ -> "R_F5_1_1",
+_ * _ * _ * "RECYCLE_F4_0" * "RECYCLE_F4_0" * _ * _ * "RECYCLE_F4" * _ * _ -> "RECYCLE_F4_0",
+_ * _ * _ * "RECYCLE_F4_1" * "RECYCLE_F4_1" * _ * "RECYCLE_F4" * _ * _ * _ -> "RECYCLE_F4_1",
+_ * _ * _ * "NEW_F3_0" * _ * "NEW_F3_0" * _ * _ * _ * "NEW_F3" -> "NEW_F3_0",
+_ * _ * _ * "NEW_F3_1" * _ * "NEW_F3_1" * _ * _ * "NEW_F3" * _ -> "NEW_F3_1",
+_ * _ * _ * "Q_F3" * _ * _ * _ * _ * _ * _ -> "Q_F3",
+_ * _ * _ * "GET_VALUE_F3_0" * _ * _ * _ * _ * _ * "GET_VALUE_F3" -> "GET_VALUE_F3_0",
+_ * _ * _ * "GET_VALUE_F3_1" * _ * _ * _ * _ * "GET_VALUE_F3" * _ -> "GET_VALUE_F3_1",
+_ * "CALL_F2" * "CALL_F2" * _ * _ * _ * _ * _ * _ * _ -> "CALL_F2",
+_ * "R_F2_0" * "R_F2_0" * _ * _ * _ * _ * _ * _ * _ -> "R_F2_0_0",
+_ * "R_F2_0" * "R_F2_1" * _ * _ * _ * _ * _ * _ * _ -> "R_F2_0_1",
+_ * "R_F2_1" * "R_F2_0" * _ * _ * _ * _ * _ * _ * _ -> "R_F2_1_0",
+_ * "R_F2_1" * "R_F2_1" * _ * _ * _ * _ * _ * _ * _ -> "R_F2_1_1",
+_ * _ * _ * "R_GET_VALUEF4" * _ * _ * _ * "R_GET_VALUEF4" * _ * _ -> "R_GET_VALUEF4",
+_ * _ * _ * "R_GET_VALUEF4" * _ * _ * "R_GET_VALUEF4" * _ * _ * _ -> "R_GET_VALUEF4",
+"SERVE_F5" * "SERVE_F5" * _ * _ * _ * _ * _ * _ * _ * _ -> "SERVE_F5",
+_ * _ * _ * _ * _ * _ * _ * "R_F4_0" * _ * _ -> "R_F4_0_0",
+_ * _ * _ * _ * _ * _ * "R_F4_0" * _ * _ * _ -> "R_F4_1_0",
+_ * _ * _ * _ * _ * _ * _ * "R_F4_1" * _ * _ -> "R_F4_0_1",
+_ * _ * _ * _ * _ * _ * "R_F4_1" * _ * _ * _ -> "R_F4_1_1",
+_ * _ * _ * "GET_PROXY_F3" * _ * "GET_PROXY_F3" * _ * _ * _ * _ -> "GET_PROXY_F3",
+_ * _ * _ * "NEW_F4_0" * "NEW_F4_0" * _ * _ * "NEW_F4" * _ * _ -> "NEW_F4_0", 
+_ * _ * _ * "NEW_F4_1" * "NEW_F4_1" * _ * "NEW_F4" * _ * _ * _ -> "NEW_F4_1" 
+
+
+in
+"Comp1_Queue" ||"Comp1_Body"||"Comp1_f2"||"Comp1_f5"||"Comp1_f4_PM"||"Comp1_f3_PM"||"Comp1_f4_Proxy"||"Comp1_f4_Proxy"||"Comp1_f3_Proxy"||"Comp1_f3_Proxy"
+end par

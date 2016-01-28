@@ -1,0 +1,100 @@
+"Comp2_Body_nr.bcg" = total rename
+"R_F1 !POS (\([0-9]*\))\(.*\)"->"R_F1_\1 \2",
+"R_F4 !POS (\([0-9]*\))\(.*\)"->"R_F4_\1 \2"
+in "Comp2_Body.bcg";
+"Comp2_Body.bcg" = "Comp2_Body_nr.bcg";
+
+"Comp2_f1_nr.bcg" = total rename
+"R_F1 !\([TRUE|FALSE]*\)\(.*\)"->"R_F1_\1 \2",
+"NEW_F5 !POS (\([0-9]*\))\(.*\)"->"NEW_F5_\1 \2",
+"GET_VALUE_F5 !POS (\([0-9]*\))\(.*\)"->"GET_VALUE_F5_\1 \2",
+"RECYCLE_F5 !POS (\([0-9]*\))\(.*\)"->"RECYCLE_F5_\1 \2"
+in "Comp2_f1.bcg";
+"Comp2_f1.bcg" = "Comp2_f1_nr.bcg";
+
+"Comp2_f4_nr.bcg" = total rename
+"R_F4 !\([TRUE|FALSE]*\)\(.*\)"->"R_F4_\1 \2"
+in "Comp2_f4.bcg";
+"Comp2_f4.bcg" = "Comp2_f4_nr.bcg";
+
+"Comp2_f5_PM_nr.bcg" = total rename
+"NEW_F5 !POS (\([0-9]*\))\(.*\)"->"NEW_F5_\1 \2",
+"RECYCLE_F5 !POS (\([0-9]*\))\(.*\)"->"RECYCLE_F5_\1 \2"
+in "Comp2_f5_PM.bcg";
+"Comp2_f5_PM.bcg" = "Comp2_f5_PM_nr.bcg";
+
+"Comp2_f5_Proxy_nr.bcg" = total rename
+"R_F5 !\([TRUE|FALSE]*\)\(.*\)"->"R_F5_\1 \2"
+in "Comp2_f5_Proxy.bcg";
+"Comp2_f5_Proxy.bcg" = "Comp2_f5_Proxy_nr.bcg";
+
+"Comp2_Body_nr.bcg" = multiple rename
+"_TRUE" -> "_1",
+"!TRUE" -> "!POS (1)"
+
+in "Comp2_Body.bcg";
+"Comp2_Body.bcg" = "Comp2_Body_nr.bcg";
+
+"Comp2_f1_nr.bcg" = multiple rename
+"_TRUE" -> "_1",
+"!TRUE" -> "!POS (1)"
+
+in "Comp2_f1.bcg";
+"Comp2_f1.bcg" = "Comp2_f1_nr.bcg";
+
+"Comp2_f4_nr.bcg" = multiple rename
+"_TRUE" -> "_1",
+"!TRUE" -> "!POS (1)"
+
+in "Comp2_f4.bcg";
+"Comp2_f4.bcg" = "Comp2_f4_nr.bcg";
+
+"Comp2_f5_PM_nr.bcg" = multiple rename
+"_TRUE" -> "_1",
+"!TRUE" -> "!POS (1)"
+
+in "Comp2_f5_PM.bcg";
+"Comp2_f5_PM.bcg" = "Comp2_f5_PM_nr.bcg";
+
+"Comp2_f5_Proxy_nr.bcg" = multiple rename
+"_TRUE" -> "_1",
+"!TRUE" -> "!POS (1)"
+
+in "Comp2_f5_Proxy.bcg";
+"Comp2_f5_Proxy.bcg" = "Comp2_f5_Proxy_nr.bcg";
+
+"Comp2_Body_nr.bcg" = multiple rename
+"_FALSE" -> "_0",
+"!FALSE" -> "!POS (0)"
+in "Comp2_Body.bcg";
+"Comp2_Body.bcg" = "Comp2_Body_nr.bcg";
+
+"Comp2_f1_nr.bcg" = multiple rename
+"_FALSE" -> "_0",
+"!FALSE" -> "!POS (0)"
+in "Comp2_f1.bcg";
+"Comp2_f1.bcg" = "Comp2_f1_nr.bcg";
+
+"Comp2_f4_nr.bcg" = multiple rename
+"_FALSE" -> "_0",
+"!FALSE" -> "!POS (0)"
+in "Comp2_f4.bcg";
+"Comp2_f4.bcg" = "Comp2_f4_nr.bcg";
+
+"Comp2_f5_PM_nr.bcg" = multiple rename
+"_FALSE" -> "_0",
+"!FALSE" -> "!POS (0)"
+in "Comp2_f5_PM.bcg";
+"Comp2_f5_PM.bcg" = "Comp2_f5_PM_nr.bcg";
+
+"Comp2_f5_Proxy_nr.bcg" = multiple rename
+"_FALSE" -> "_0",
+"!FALSE" -> "!POS (0)"
+in "Comp2_f5_Proxy.bcg";
+"Comp2_f5_Proxy.bcg" = "Comp2_f5_Proxy_nr.bcg";
+
+"Compos_Comp2_nh.bcg"=  branching reduction of "Compos_Comp2_SV.exp";
+
+"Compos_Comp2.bcg" = branching reduction of gate hide
+"CALL_F4", "NEW_F5_.*", "R_GET_VALUEF5", "SERVE_F1", "CALL_F1", "GET_VALUE_F5_.*", "SERVE_F4", "GET_PROXY_F5", "RECYCLE_F5_.*"
+in "Compos_Comp2_nh.bcg"

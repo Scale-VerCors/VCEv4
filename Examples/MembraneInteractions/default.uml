@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:smextension="http://www.example.org/smextension" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmlns:vcetypes="http://www.example.org/vcetypes" xmi:id="_veH3IMQ9EeWmuLoFnqLTwA">
+  <packagedElement xmi:type="uml:Class" xmi:id="_3629cMQ-EeWmuLoFnqLTwA" name="Class1">
+    <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_zNMmIMTbEeWOvcgKkOt4gg" name="f2" specification="_oi64MMRAEeWmuLoFnqLTwA">
+      <region xmi:id="_0Gj3EMTbEeWOvcgKkOt4gg" name="region">
+        <transition xmi:id="_EkmW0MTcEeWOvcgKkOt4gg" name="/return true" source="_B7g0sMTcEeWOvcgKkOt4gg" target="_Dl1ogMTcEeWOvcgKkOt4gg"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_B7g0sMTcEeWOvcgKkOt4gg" name="Initial1"/>
+        <subvertex xmi:type="uml:FinalState" xmi:id="_Dl1ogMTcEeWOvcgKkOt4gg" name="FinalState1"/>
+      </region>
+    </ownedBehavior>
+    <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_M_zBgMTcEeWOvcgKkOt4gg" name="f5" specification="_pqAcEMRAEeWmuLoFnqLTwA">
+      <region xmi:id="_M_zBgcTcEeWOvcgKkOt4gg" name="region">
+        <transition xmi:id="_M_zokMTcEeWOvcgKkOt4gg" name="/return b1" source="__yxUwMXGEeWHm9dEvMvmnA" target="_M_zoksTcEeWOvcgKkOt4gg"/>
+        <transition xmi:id="_FOA1cMXHEeWHm9dEvMvmnA" name="/b1:=C1.f4()" source="_M_zokcTcEeWOvcgKkOt4gg" target="_CS6WQMXHEeWHm9dEvMvmnA"/>
+        <transition xmi:id="_KV7KcMXHEeWHm9dEvMvmnA" name="/b2:=C2.f3()" source="_CS6WQMXHEeWHm9dEvMvmnA" target="__yxUwMXGEeWHm9dEvMvmnA"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_M_zokcTcEeWOvcgKkOt4gg" name="Initial1"/>
+        <subvertex xmi:type="uml:FinalState" xmi:id="_M_zoksTcEeWOvcgKkOt4gg" name="FinalState1"/>
+        <subvertex xmi:type="uml:State" xmi:id="__yxUwMXGEeWHm9dEvMvmnA" name="State1"/>
+        <subvertex xmi:type="uml:State" xmi:id="_CS6WQMXHEeWHm9dEvMvmnA" name="State2"/>
+      </region>
+    </ownedBehavior>
+    <ownedOperation xmi:id="_oi64MMRAEeWmuLoFnqLTwA" name="f2" method="_zNMmIMTbEeWOvcgKkOt4gg" redefinedOperation="_oi64MMRAEeWmuLoFnqLTwA">
+      <ownedParameter xmi:id="_oi64McRAEeWmuLoFnqLTwA" name="res" direction="return">
+        <type xmi:type="vcetypes:BoolType" href="default.vcetypes#//@boolType"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_pqAcEMRAEeWmuLoFnqLTwA" name="f5" method="_M_zBgMTcEeWOvcgKkOt4gg" redefinedOperation="_pqAcEMRAEeWmuLoFnqLTwA">
+      <ownedParameter xmi:id="_pqAcEcRAEeWmuLoFnqLTwA" name="res" direction="return">
+        <type xmi:type="vcetypes:BoolType" href="default.vcetypes#//@boolType"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pqAcEsRAEeWmuLoFnqLTwA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pqAcE8RAEeWmuLoFnqLTwA" value="1"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_4830EMQ-EeWmuLoFnqLTwA" name="Class2">
+    <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_S7T9sMTcEeWOvcgKkOt4gg" name="f1" specification="_lJAWEMRAEeWmuLoFnqLTwA">
+      <region xmi:id="_S7T9scTcEeWOvcgKkOt4gg" name="region">
+        <transition xmi:id="_S7T9ssTcEeWOvcgKkOt4gg" name="/return b1" source="_MBOrIMXGEeWHm9dEvMvmnA" target="_S7T9tMTcEeWOvcgKkOt4gg"/>
+        <transition xmi:id="_SHllYMXGEeWHm9dEvMvmnA" name="/b1:=C1.f5()" source="_S7T9s8TcEeWOvcgKkOt4gg" target="_MBOrIMXGEeWHm9dEvMvmnA"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_S7T9s8TcEeWOvcgKkOt4gg" name="Initial1"/>
+        <subvertex xmi:type="uml:FinalState" xmi:id="_S7T9tMTcEeWOvcgKkOt4gg" name="FinalState1"/>
+        <subvertex xmi:type="uml:State" xmi:id="_MBOrIMXGEeWHm9dEvMvmnA" name="State1"/>
+      </region>
+    </ownedBehavior>
+    <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_TI4foMTcEeWOvcgKkOt4gg" name="f4" specification="_ljt8IMRAEeWmuLoFnqLTwA">
+      <region xmi:id="_TI4focTcEeWOvcgKkOt4gg" name="region">
+        <transition xmi:id="_TI4fosTcEeWOvcgKkOt4gg" name="/return true" source="_TI4fo8TcEeWOvcgKkOt4gg" target="_TI4fpMTcEeWOvcgKkOt4gg"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_TI4fo8TcEeWOvcgKkOt4gg" name="Initial1"/>
+        <subvertex xmi:type="uml:FinalState" xmi:id="_TI4fpMTcEeWOvcgKkOt4gg" name="FinalState1"/>
+      </region>
+    </ownedBehavior>
+    <ownedOperation xmi:id="_lJAWEMRAEeWmuLoFnqLTwA" name="f1" method="_S7T9sMTcEeWOvcgKkOt4gg" redefinedOperation="_lJAWEMRAEeWmuLoFnqLTwA">
+      <ownedParameter xmi:id="_lJAWEcRAEeWmuLoFnqLTwA" name="res" direction="return">
+        <type xmi:type="vcetypes:BoolType" href="default.vcetypes#//@boolType"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_ljt8IMRAEeWmuLoFnqLTwA" name="f4" method="_TI4foMTcEeWOvcgKkOt4gg" redefinedOperation="_ljt8IMRAEeWmuLoFnqLTwA">
+      <ownedParameter xmi:id="_ljt8IcRAEeWmuLoFnqLTwA" name="res" direction="return">
+        <type xmi:type="vcetypes:BoolType" href="default.vcetypes#//@boolType"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ljt8IsRAEeWmuLoFnqLTwA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ljt8I8RAEeWmuLoFnqLTwA" value="1"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_5pY70MQ-EeWmuLoFnqLTwA" name="Class3"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_6kFCcMQ-EeWmuLoFnqLTwA" name="Interface1">
+    <ownedOperation xmi:id="_SC-V0MQ_EeWmuLoFnqLTwA" name="f1">
+      <ownedParameter xmi:id="_UaME0MQ_EeWmuLoFnqLTwA" name="res" direction="return">
+        <type xmi:type="vcetypes:BoolType" href="default.vcetypes#//@boolType"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_7J66cMQ-EeWmuLoFnqLTwA" name="Interface2">
+    <ownedOperation xmi:id="_Spuz0MQ_EeWmuLoFnqLTwA" name="f2">
+      <ownedParameter xmi:id="_YcrC0MQ_EeWmuLoFnqLTwA" name="res" direction="return">
+        <type xmi:type="vcetypes:BoolType" href="default.vcetypes#//@boolType"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_7nN6cMQ-EeWmuLoFnqLTwA" name="Interface3">
+    <ownedOperation xmi:id="_bs1MAMQ_EeWmuLoFnqLTwA" name="f3">
+      <ownedParameter xmi:id="_bs1MAcQ_EeWmuLoFnqLTwA" name="res" direction="return">
+        <type xmi:type="vcetypes:BoolType" href="default.vcetypes#//@boolType"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_FApSgMRAEeWmuLoFnqLTwA" name="Interface4">
+    <ownedOperation xmi:id="_FApSgcRAEeWmuLoFnqLTwA" name="f4">
+      <ownedParameter xmi:id="_FApSgsRAEeWmuLoFnqLTwA" name="res" direction="return">
+        <type xmi:type="vcetypes:BoolType" href="default.vcetypes#//@boolType"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Ifn60MRAEeWmuLoFnqLTwA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Ifn60cRAEeWmuLoFnqLTwA" value="1"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_JDO-MMRAEeWmuLoFnqLTwA" name="Interface5">
+    <ownedOperation xmi:id="_JDO-McRAEeWmuLoFnqLTwA" name="f5">
+      <ownedParameter xmi:id="_JDO-MsRAEeWmuLoFnqLTwA" name="res" direction="return">
+        <type xmi:type="vcetypes:BoolType" href="default.vcetypes#//@boolType"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LWezMMRAEeWmuLoFnqLTwA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LWfaQMRAEeWmuLoFnqLTwA" value="1"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="smextension:VariablesDeclaration" xmi:id="_a3ntEMXFEeWHm9dEvMvmnA" stateMachine="_S7T9sMTcEeWOvcgKkOt4gg">
+    <variables xmi:id="_dmfHEMXFEeWHm9dEvMvmnA" name="b1">
+      <type xmi:type="vcetypes:BoolType" href="default.vcetypes#//@boolType"/>
+    </variables>
+    <variables xmi:id="_eqp50MXFEeWHm9dEvMvmnA" name="b2">
+      <type xmi:type="vcetypes:BoolType" href="default.vcetypes#//@boolType"/>
+    </variables>
+  </packagedElement>
+  <packagedElement xmi:type="smextension:VariablesDeclaration" xmi:id="_0dZX8MXGEeWHm9dEvMvmnA" stateMachine="_M_zBgMTcEeWOvcgKkOt4gg">
+    <variables xmi:id="_3jzvQMXGEeWHm9dEvMvmnA" name="b1">
+      <type xmi:type="vcetypes:BoolType" href="default.vcetypes#//@boolType"/>
+    </variables>
+    <variables xmi:id="_7rq8gMXGEeWHm9dEvMvmnA" name="b2">
+      <type xmi:type="vcetypes:BoolType" href="default.vcetypes#//@boolType"/>
+    </variables>
+  </packagedElement>
+</uml:Model>

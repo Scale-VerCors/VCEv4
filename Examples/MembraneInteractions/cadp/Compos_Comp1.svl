@@ -1,0 +1,140 @@
+"Comp1_Body_nr.bcg" = total rename
+"R_F2 !POS (\([0-9]*\))\(.*\)"->"R_F2_\1 \2",
+"R_F5 !POS (\([0-9]*\))\(.*\)"->"R_F5_\1 \2"
+in "Comp1_Body.bcg";
+"Comp1_Body.bcg" = "Comp1_Body_nr.bcg";
+
+"Comp1_f2_nr.bcg" = total rename
+"R_F2 !\([TRUE|FALSE]*\)\(.*\)"->"R_F2_\1 \2"
+in "Comp1_f2.bcg";
+"Comp1_f2.bcg" = "Comp1_f2_nr.bcg";
+
+"Comp1_f5_nr.bcg" = total rename
+"R_F5 !\([TRUE|FALSE]*\)\(.*\)"->"R_F5_\1 \2",
+"NEW_F3 !POS (\([0-9]*\))\(.*\)"->"NEW_F3_\1 \2",
+"GET_VALUE_F3 !POS (\([0-9]*\))\(.*\)"->"GET_VALUE_F3_\1 \2",
+"RECYCLE_F3 !POS (\([0-9]*\))\(.*\)"->"RECYCLE_F3_\1 \2",
+"NEW_F4 !POS (\([0-9]*\))\(.*\)"->"NEW_F4_\1 \2",
+"GET_VALUE_F4 !POS (\([0-9]*\))\(.*\)"->"GET_VALUE_F4_\1 \2",
+"RECYCLE_F4 !POS (\([0-9]*\))\(.*\)"->"RECYCLE_F4_\1 \2"
+in "Comp1_f5.bcg";
+"Comp1_f5.bcg" = "Comp1_f5_nr.bcg";
+
+"Comp1_f4_PM_nr.bcg" = total rename
+"NEW_F4 !POS (\([0-9]*\))\(.*\)"->"NEW_F4_\1 \2",
+"RECYCLE_F4 !POS (\([0-9]*\))\(.*\)"->"RECYCLE_F4_\1 \2"
+in "Comp1_f4_PM.bcg";
+"Comp1_f4_PM.bcg" = "Comp1_f4_PM_nr.bcg";
+
+"Comp1_f3_PM_nr.bcg" = total rename
+"NEW_F3 !POS (\([0-9]*\))\(.*\)"->"NEW_F3_\1 \2",
+"RECYCLE_F3 !POS (\([0-9]*\))\(.*\)"->"RECYCLE_F3_\1 \2"
+in "Comp1_f3_PM.bcg";
+"Comp1_f3_PM.bcg" = "Comp1_f3_PM_nr.bcg";
+
+"Comp1_f4_Proxy_nr.bcg" = total rename
+"R_F4 !\([TRUE|FALSE]*\)\(.*\)"->"R_F4_\1 \2"
+in "Comp1_f4_Proxy.bcg";
+"Comp1_f4_Proxy.bcg" = "Comp1_f4_Proxy_nr.bcg";
+
+"Comp1_f3_Proxy_nr.bcg" = total rename
+"R_F3 !\([TRUE|FALSE]*\)\(.*\)"->"R_F3_\1 \2"
+in "Comp1_f3_Proxy.bcg";
+"Comp1_f3_Proxy.bcg" = "Comp1_f3_Proxy_nr.bcg";
+
+"Comp1_Body_nr.bcg" = multiple rename
+"_TRUE" -> "_1",
+"!TRUE" -> "!POS (1)"
+
+in "Comp1_Body.bcg";
+"Comp1_Body.bcg" = "Comp1_Body_nr.bcg";
+
+"Comp1_f2_nr.bcg" = multiple rename
+"_TRUE" -> "_1",
+"!TRUE" -> "!POS (1)"
+
+in "Comp1_f2.bcg";
+"Comp1_f2.bcg" = "Comp1_f2_nr.bcg";
+
+"Comp1_f5_nr.bcg" = multiple rename
+"_TRUE" -> "_1",
+"!TRUE" -> "!POS (1)"
+
+in "Comp1_f5.bcg";
+"Comp1_f5.bcg" = "Comp1_f5_nr.bcg";
+
+"Comp1_f4_PM_nr.bcg" = multiple rename
+"_TRUE" -> "_1",
+"!TRUE" -> "!POS (1)"
+
+in "Comp1_f4_PM.bcg";
+"Comp1_f4_PM.bcg" = "Comp1_f4_PM_nr.bcg";
+
+"Comp1_f3_PM_nr.bcg" = multiple rename
+"_TRUE" -> "_1",
+"!TRUE" -> "!POS (1)"
+
+in "Comp1_f3_PM.bcg";
+"Comp1_f3_PM.bcg" = "Comp1_f3_PM_nr.bcg";
+
+"Comp1_f4_Proxy_nr.bcg" = multiple rename
+"_TRUE" -> "_1",
+"!TRUE" -> "!POS (1)"
+
+in "Comp1_f4_Proxy.bcg";
+"Comp1_f4_Proxy.bcg" = "Comp1_f4_Proxy_nr.bcg";
+
+"Comp1_f3_Proxy_nr.bcg" = multiple rename
+"_TRUE" -> "_1",
+"!TRUE" -> "!POS (1)"
+
+in "Comp1_f3_Proxy.bcg";
+"Comp1_f3_Proxy.bcg" = "Comp1_f3_Proxy_nr.bcg";
+
+"Comp1_Body_nr.bcg" = multiple rename
+"_FALSE" -> "_0",
+"!FALSE" -> "!POS (0)"
+in "Comp1_Body.bcg";
+"Comp1_Body.bcg" = "Comp1_Body_nr.bcg";
+
+"Comp1_f2_nr.bcg" = multiple rename
+"_FALSE" -> "_0",
+"!FALSE" -> "!POS (0)"
+in "Comp1_f2.bcg";
+"Comp1_f2.bcg" = "Comp1_f2_nr.bcg";
+
+"Comp1_f5_nr.bcg" = multiple rename
+"_FALSE" -> "_0",
+"!FALSE" -> "!POS (0)"
+in "Comp1_f5.bcg";
+"Comp1_f5.bcg" = "Comp1_f5_nr.bcg";
+
+"Comp1_f4_PM_nr.bcg" = multiple rename
+"_FALSE" -> "_0",
+"!FALSE" -> "!POS (0)"
+in "Comp1_f4_PM.bcg";
+"Comp1_f4_PM.bcg" = "Comp1_f4_PM_nr.bcg";
+
+"Comp1_f3_PM_nr.bcg" = multiple rename
+"_FALSE" -> "_0",
+"!FALSE" -> "!POS (0)"
+in "Comp1_f3_PM.bcg";
+"Comp1_f3_PM.bcg" = "Comp1_f3_PM_nr.bcg";
+
+"Comp1_f4_Proxy_nr.bcg" = multiple rename
+"_FALSE" -> "_0",
+"!FALSE" -> "!POS (0)"
+in "Comp1_f4_Proxy.bcg";
+"Comp1_f4_Proxy.bcg" = "Comp1_f4_Proxy_nr.bcg";
+
+"Comp1_f3_Proxy_nr.bcg" = multiple rename
+"_FALSE" -> "_0",
+"!FALSE" -> "!POS (0)"
+in "Comp1_f3_Proxy.bcg";
+"Comp1_f3_Proxy.bcg" = "Comp1_f3_Proxy_nr.bcg";
+
+"Compos_Comp1_nh.bcg"=  branching reduction of "Compos_Comp1_SV.exp";
+
+"Compos_Comp1.bcg" = branching reduction of gate hide
+"NEW_F4_.*", "NEW_F3_.*", "GET_VALUE_F3_.*", "SERVE_F2", "GET_VALUE_F4_.*", "SERVE_F5", "RECYCLE_F3_.*", "CALL_F5", "RECYCLE_F4_.*", "CALL_F2", "GET_PROXY_F3", "R_GET_VALUEF4", "R_GET_VALUEF3", "GET_PROXY_F4"
+in "Compos_Comp1_nh.bcg"

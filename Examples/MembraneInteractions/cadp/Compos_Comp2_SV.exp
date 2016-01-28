@@ -1,0 +1,44 @@
+-- Synch vectors for the assembly of <Comp2_Queue,Comp2_Body, Comp2_f1(), Comp2_f4(), Comp2_f5_PM(p), Comp2_f5_Proxy[p]>
+-- with the following input specification:
+-- fid:0..1 -- IntInterval
+-- rr:0..1 -- IntInterval
+-- p:0..1 -- IntInterval
+-- cxval0:0..1 -- IntInterval
+-- <Comp2_Queue(), Comp2_Body, Comp2_f1, Comp2_f4, Comp2_f5_PM(p), Comp2_f5_Proxy[p]>
+gate par using
+
+"SERVE_F1" * "SERVE_F1" * _ * _ * _ * _ * _ -> "SERVE_F1",
+"Q_F4" * _ * _ * _ * _ * _ * _ -> "QUEUE_F4",
+_ * "CALL_F4" * _ * "CALL_F4" * _ * _ * _ -> "CALL_F4",
+"SERVE_F4" * "SERVE_F4" * _ * _ * _ * _ * _ -> "SERVE_F4",
+_ * "R_F1_0" * "R_F1_0" * _ * _ * _ * _ -> "R_F1_0_0",
+_ * "R_F1_0" * "R_F1_1" * _ * _ * _ * _ -> "R_F1_0_1",
+_ * "R_F1_1" * "R_F1_0" * _ * _ * _ * _ -> "R_F1_1_0",
+_ * "R_F1_1" * "R_F1_1" * _ * _ * _ * _ -> "R_F1_1_1",
+_ * _ * _ * _ * _ * _ * "R_F5_0" -> "R_F5_0_0",
+_ * _ * _ * _ * _ * "R_F5_0" * _ -> "R_F5_1_0",
+_ * _ * _ * _ * _ * _ * "R_F5_1" -> "R_F5_0_1",
+_ * _ * _ * _ * _ * "R_F5_1" * _ -> "R_F5_1_1",
+_ * _ * "RECYCLE_F5_0" * _ * "RECYCLE_F5_0" * _ * "RECYCLE_F5" -> "RECYCLE_F5_0",
+_ * _ * "RECYCLE_F5_1" * _ * "RECYCLE_F5_1" * "RECYCLE_F5" * _ -> "RECYCLE_F5_1",
+_ * _ * "Q_F5" * _ * _ * _ * _ -> "Q_F5",
+_ * _ * "R_GET_VALUEF5" * _ * _ * _ * "R_GET_VALUEF5" -> "R_GET_VALUEF5",
+_ * _ * "R_GET_VALUEF5" * _ * _ * "R_GET_VALUEF5" * _ -> "R_GET_VALUEF5",
+_ * _ * "GET_VALUE_F5_0" * _ * _ * _ * "GET_VALUE_F5" -> "GET_VALUE_F5_0",
+_ * _ * "GET_VALUE_F5_1" * _ * _ * "GET_VALUE_F5" * _ -> "GET_VALUE_F5_1",
+_ * _ * _ * _ * "ERROR_NO_MORE_PROXY" * _ * _ -> "ERROR_NO_MORE_PROXY",
+_ * "CALL_F1" * "CALL_F1" * _ * _ * _ * _ -> "CALL_F1",
+_ * _ * "GET_PROXY_F5" * _ * "GET_PROXY_F5" * _ * _ -> "GET_PROXY_F5",
+_ * _ * "NEW_F5_0" * _ * "NEW_F5_0" * _ * "NEW_F5" -> "NEW_F5_0",
+_ * _ * "NEW_F5_1" * _ * "NEW_F5_1" * "NEW_F5" * _ -> "NEW_F5_1",
+"ERRORQUEUE" * _ * _ * _ * _ * _ * _ -> "ERRORQUEUE",
+_ * "R_F4_0" * _ * "R_F4_0" * _ * _ * _ -> "R_F4_0_0",
+_ * "R_F4_0" * _ * "R_F4_1" * _ * _ * _ -> "R_F4_0_1",
+_ * "R_F4_1" * _ * "R_F4_0" * _ * _ * _ -> "R_F4_1_0",
+_ * "R_F4_1" * _ * "R_F4_1" * _ * _ * _ -> "R_F4_1_1",
+"Q_F1" * _ * _ * _ * _ * _ * _ -> "QUEUE_F1" 
+
+
+in
+"Comp2_Queue" ||"Comp2_Body"||"Comp2_f1"||"Comp2_f4"||"Comp2_f5_PM"||"Comp2_f5_Proxy"||"Comp2_f5_Proxy"
+end par
