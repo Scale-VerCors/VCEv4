@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <vce:Architecture xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:vce="http://vce.components">
-  <components xsi:type="vce:Composite" name="Application">
+  <components xsi:type="vce:Composite" name="Application" isActivated="true">
     <externalInterfaces name="S1">
       <referencedInterface href="default.uml#_MAm5kM5AEeSmqoq7ClHNYQ"/>
     </externalInterfaces>
@@ -16,20 +16,20 @@
       <bindings sourceInterface="//@components.0/@content/@internalInterfaces.2" targetInterface="//@components.0/@externalInterfaces.2"/>
     </membrane>
     <content>
-      <bindings sourceInterface="//@components.0/@content/@components.0/@externalInterfaces.0" targetInterface="//@components.0/@content/@components.1/@externalInterfaces.0"/>
-      <bindings sourceInterface="//@components.0/@content/@components.1/@externalInterfaces.1" targetInterface="//@components.0/@content/@components.2/@externalInterfaces.0"/>
-      <bindings sourceInterface="//@components.0/@content/@components.2/@externalInterfaces.1" targetInterface="//@components.0/@content/@components.3/@externalInterfaces.0"/>
-      <bindings sourceInterface="//@components.0/@content/@components.3/@externalInterfaces.1" targetInterface="//@components.0/@content/@components.0/@externalInterfaces.1"/>
-      <bindings sourceInterface="//@components.0/@content/@internalInterfaces.0" targetInterface="//@components.0/@content/@components.3/@externalInterfaces.3"/>
-      <bindings sourceInterface="//@components.0/@content/@components.0/@externalInterfaces.2" targetInterface="//@components.0/@content/@internalInterfaces.1"/>
+      <bindings sourceInterface="//@components.0/@content/@components.0/@externalInterfaces.0" targetInterface="//@components.0/@content/@components.1/@externalInterfaces.0" isActivated="true"/>
+      <bindings sourceInterface="//@components.0/@content/@components.1/@externalInterfaces.1" targetInterface="//@components.0/@content/@components.2/@externalInterfaces.0" isActivated="true"/>
+      <bindings sourceInterface="//@components.0/@content/@components.2/@externalInterfaces.1" targetInterface="//@components.0/@content/@components.3/@externalInterfaces.0" isActivated="true"/>
+      <bindings sourceInterface="//@components.0/@content/@components.3/@externalInterfaces.1" targetInterface="//@components.0/@content/@components.0/@externalInterfaces.1" isActivated="true"/>
+      <bindings sourceInterface="//@components.0/@content/@internalInterfaces.0" targetInterface="//@components.0/@content/@components.3/@externalInterfaces.3" isActivated="true"/>
+      <bindings sourceInterface="//@components.0/@content/@components.0/@externalInterfaces.2" targetInterface="//@components.0/@content/@internalInterfaces.1" isActivated="true"/>
       <bindings sourceInterface="//@components.0/@content/@components.1/@externalInterfaces.2" targetInterface="//@components.0/@content/@internalInterfaces.1"/>
-      <bindings sourceInterface="//@components.0/@content/@components.3/@externalInterfaces.2" targetInterface="//@components.0/@content/@internalInterfaces.1"/>
-      <bindings sourceInterface="//@components.0/@content/@components.2/@externalInterfaces.2" targetInterface="//@components.0/@content/@internalInterfaces.1"/>
-      <bindings sourceInterface="//@components.0/@content/@components.1/@externalInterfaces.3" targetInterface="//@components.0/@content/@internalInterfaces.2"/>
-      <bindings sourceInterface="//@components.0/@content/@components.2/@externalInterfaces.3" targetInterface="//@components.0/@content/@internalInterfaces.2"/>
-      <bindings sourceInterface="//@components.0/@content/@components.3/@externalInterfaces.4" targetInterface="//@components.0/@content/@internalInterfaces.2"/>
+      <bindings sourceInterface="//@components.0/@content/@components.3/@externalInterfaces.2" targetInterface="//@components.0/@content/@internalInterfaces.1" isActivated="true"/>
+      <bindings sourceInterface="//@components.0/@content/@components.2/@externalInterfaces.2" targetInterface="//@components.0/@content/@internalInterfaces.1" isActivated="true"/>
+      <bindings sourceInterface="//@components.0/@content/@components.1/@externalInterfaces.3" targetInterface="//@components.0/@content/@internalInterfaces.2" isActivated="true"/>
+      <bindings sourceInterface="//@components.0/@content/@components.2/@externalInterfaces.3" targetInterface="//@components.0/@content/@internalInterfaces.2" isActivated="true"/>
+      <bindings sourceInterface="//@components.0/@content/@components.3/@externalInterfaces.4" targetInterface="//@components.0/@content/@internalInterfaces.2" isActivated="true"/>
       <bindings sourceInterface="//@components.0/@content/@components.0/@externalInterfaces.3" targetInterface="//@components.0/@content/@internalInterfaces.2"/>
-      <components xsi:type="vce:Primitive" name="Comp1">
+      <components xsi:type="vce:Primitive" name="Comp1" isActivated="true">
         <externalInterfaces isServer="false" name="C1">
           <referencedInterface href="default.uml#_0UL5ILIHEeSMy6Xo1S2Y3Q"/>
         </externalInterfaces>
@@ -48,7 +48,7 @@
           <attributes name="cnum" value="1"/>
         </attributes>
       </components>
-      <components xsi:type="vce:Primitive" name="Comp2">
+      <components xsi:type="vce:Primitive" name="Comp2" isActivated="true">
         <externalInterfaces name="S1">
           <referencedInterface href="default.uml#_0UL5ILIHEeSMy6Xo1S2Y3Q"/>
         </externalInterfaces>
@@ -67,7 +67,7 @@
           <attributes name="cnum" value="2"/>
         </attributes>
       </components>
-      <components xsi:type="vce:Primitive" name="Comp3">
+      <components xsi:type="vce:Primitive" name="Comp3" isActivated="true">
         <externalInterfaces name="S1">
           <referencedInterface href="default.uml#_0UL5ILIHEeSMy6Xo1S2Y3Q"/>
         </externalInterfaces>
@@ -86,7 +86,7 @@
           <attributes name="cnum" value="3"/>
         </attributes>
       </components>
-      <components xsi:type="vce:Primitive" name="Comp4">
+      <components xsi:type="vce:Primitive" name="Comp4" isActivated="true">
         <externalInterfaces name="S1">
           <referencedInterface href="default.uml#_0UL5ILIHEeSMy6Xo1S2Y3Q"/>
         </externalInterfaces>
