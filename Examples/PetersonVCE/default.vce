@@ -28,7 +28,7 @@
       <bindings sourceInterface="//@components.0/@content/@components.1/@externalInterfaces.3" targetInterface="//@components.0/@content/@internalInterfaces.2" isActivated="true"/>
       <bindings sourceInterface="//@components.0/@content/@components.2/@externalInterfaces.3" targetInterface="//@components.0/@content/@internalInterfaces.2" isActivated="true"/>
       <bindings sourceInterface="//@components.0/@content/@components.3/@externalInterfaces.4" targetInterface="//@components.0/@content/@internalInterfaces.2" isActivated="true"/>
-      <bindings sourceInterface="//@components.0/@content/@components.0/@externalInterfaces.3" targetInterface="//@components.0/@content/@internalInterfaces.2"/>
+      <bindings sourceInterface="//@components.0/@content/@components.0/@externalInterfaces.3" targetInterface="//@components.0/@content/@internalInterfaces.2" isActivated="true"/>
       <components xsi:type="vce:Primitive" name="Comp1" isActivated="true">
         <externalInterfaces isServer="false" name="C1">
           <referencedInterface href="default.uml#_0UL5ILIHEeSMy6Xo1S2Y3Q"/>
