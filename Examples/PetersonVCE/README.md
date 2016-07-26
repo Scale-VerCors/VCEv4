@@ -33,9 +33,9 @@ In order to test the generated files with ProActive you can copy "le" folder and
 * right-clich on the membrane (grey part) of Application component and select "Generate pNet -> Generate pNet". This will open a Wizard;
 * select "<State Machine> Scenario - this is a State Machine modeling the scenario of the environment; press "Next";
 * specify the queue sizes of the components (for example, 2) and press "next";
-* specify the communications that you do not want to observe during model-checking (in our example we hide only "Server operations and queue -> runPeterson" which means that the Application can accept runPeterson method invocation only from the Scenario; press "Finish".
+* specify the communications that you do not want to observe during model-checking (in our example we hide only "Server operations and queue -> runPeterson" which means that the Application can accept runPeterson method invocation only from the Scenario; press "Finish". The wizard was created for the debugging purposes and it was not properly tested yet.
 
-This will generate "cadp" folder in your project. The folder includes Fiacre files of all pLTSs, EXP files with synchronization vectors for all components, SVL scripts hiding internal communications. Finally, run.sh file contains a script that launces SVL scripts and invokes Flac compiler in order to generate BCG files of the components. 
+This will generate "cadp" folder in your project. The folder includes Fiacre files of all pLTSs, EXP files with synchronization vectors for all components, SVL scripts hiding internal communications. Finally, run.sh file contains a script that launches SVL scripts and invokes Flac compiler in order to generate BCG files of the components. You should add the flac-and-minimize script from our Examples folder to your forlder with run.sh.
 In order to get information on how to install and use CADP model-checker, please, check the [official web-site of CADP](http://cadp.inria.fr/).
 
 
