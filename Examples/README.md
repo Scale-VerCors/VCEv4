@@ -9,3 +9,6 @@ Workflow_01 is a VCE project with futures where a TaskDistributor distributes ta
 
 ### MembraneInteractions
 This is a project for testing interactions with a membrane via singletone interfaces.
+
+### flac-and-minimize
+The script needed for the model-checking

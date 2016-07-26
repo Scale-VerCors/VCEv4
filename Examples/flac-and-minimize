@@ -1,0 +1,64 @@
+#! /bin/sh
+
+# Usage: flac-and-minimize source.fcr
+
+
+if [ $# != 1 ]
+then
+	echo "one argument expected"
+	exit 1
+fi
+
+FIACRE_PREFIX=`basename "$1" .fcr`
+FIACRE_INPUT=`dirname "$1"`/"$FIACRE_PREFIX".fcr
+
+if [ ! -r "$FIACRE_INPUT" ]
+then
+	echo "cannot read input specification \`\`$FIACRE_INPUT''"
+	exit 1
+fi
+
+# -----------------------------------------------------------------------------
+# calling flac
+
+flac "$FIACRE_INPUT"
+
+if [ "$?" != 0 ]
+then
+	echo "error while translating \`\`$FLAC_INPUT'' to LOTOS"
+	exit 1
+fi
+
+# patch generated code to remove EXTINTEGER
+sed -i /type\ EXTINTEGER/,+12d $FIACRE_PREFIX.lotos 
+sed -i s/EXTINTEGER/INTEGER/ $FIACRE_PREFIX.lotos 
+
+# -----------------------------------------------------------------------------
+# calling svl
+
+svl "$FIACRE_PREFIX.svl"
+
+if [ "$?" != 0 ]
+then
+	echo "error while generating \`\`$FLAC_PREFIX.bcg'' "
+	exit 1
+fi
+
+
+# -----------------------------------------------------------------------------
+# calling bcg_min -branching
+
+bcg_min -branching "$FIACRE_PREFIX.bcg"
+
+if [ "$?" != 0 ]
+then
+	echo "error while minimizing \`\`$FLAC_PREFIX.bcg'' "
+	exit 1
+fi
+
+# -----------------------------------------------------------------------------
+# calling bcg_info
+
+bcg_info "$FIACRE_PREFIX.bcg"
+
+
