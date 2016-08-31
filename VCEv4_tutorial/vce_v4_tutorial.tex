@@ -142,7 +142,7 @@ Prim1 implements the following business logic. Method sumUp can be called on the
 \subsection{VCE project creation}
 \begin{enumerate}
 \item
-Go to \textbf{Sirius} perspective (see a figure below). You can change the perspective using a button in top-right corner of your Obeo (Eclipse) or in the top-bar menu.
+Go to \textbf{Sirius} perspective (see the figure below). You can change the perspective using a button in top-right corner of your Obeo (Eclipse) or in the top-bar menu.
 %\begin{figure}
      \centerline{
      \includegraphics[width=8cm]{draws/sirius-persp.png}
@@ -244,7 +244,7 @@ For our first example pick the tool called \textbf{Primitive} and draw a primiti
      \label{fig:vce-proj}
      }
 \subsection{Types specification}
-This section describes how to specify types. VCE has 4 predefined type: VoidType, BoolType, IntType and NatType. However, one can construct its own types: enumerations, records and specify integer intervals to abstract the data domains. Our example has two integer intervals: \textbf{argType = 0..2} and \textbf{resType = 0..4}.
+This section describes how to specify types. VCE has 4 predefined type: VoidType, BoolType, IntType and NatType. However, one can construct his own types: enumerations, records, arrays, and integer intervals to abstract the data domains. Our example has two integer intervals: \textbf{argType = 0..2} and \textbf{resType = 0..4}.
 
 In order to specify the types, you need to:
 
@@ -255,7 +255,7 @@ Open an existing VceTypes diagram or create a new one. In order to create a new 
 You can edit it using tools on the Palette. 
 \end{enumerate}
 
-\textbf{Note: }in the current version of VCE most of the types features can be edited in \textbf{Properties} view but not directly.
+\textbf{Note: }in the current version of VCE most of the features of the types (e.g. the name of a type) can be edited in \textbf{Properties} view but not directly on a diagram.
 
 For our first example pick the tool called \textbf{Intervals Container} and draw a container where you will specify the intervals. Then, using \textbf{Int Interval} tool add two intervals. Use Properties view to set their names, lower and upper bounds. The result is illustrated below.
 
@@ -266,11 +266,11 @@ For our first example pick the tool called \textbf{Intervals Container} and draw
      }
 
 \subsection{UML Classes and Interfaces}\label{sec:uml-classes}
-The UML Classes, Interfaces and Operations that will be used to specify GCM interfaces and primitive component implementation class must be described at UML Class diagram. In order to create it, right-click on \textbf{$<$Model$>$} in the Model explorer and select \textbf{New Representation $\rightarrow$ Class diagram}. The new diagram will be created and opened automatically. Another way is to double-click on \textbf{Dashboard} and there one can find Class diagram. 
+The UML Classes, Interfaces, and Operations that will be used to specify GCM interfaces and primitive component implementation class must be described at UML Class diagram. In order to create it, right-click on \textbf{$<$Model$>$} in the Model explorer and select \textbf{New Representation $\rightarrow$ Class diagram}. A new diagram will be created and opened automatically. Another way is to double-click on \textbf{Dashboard} and there one can find Class diagram. 
 
 [Hint: choose meaningful, but reasonably short names. Long names make graphical diagrams difficult to manage]
 
-A figure below illustrates Class diagram of our example. 
+The figure below illustrates Class diagram of our example. 
 
      \centerline{
      \includegraphics[width=12cm]{draws/classes.png}
@@ -415,7 +415,9 @@ If you want to use local variables on your State Machine, you should declare the
     % \caption{VCE Project Structure}
      \label{fig:vce-proj}
      }
-     
+ 
+ Th input parameters of the operation modelled by the state machine should be also included in the list of local variables. Moreover, for each local variable of array type with a name \texttt{name} there can be declared a local variable with a name \texttt{name\_length} which stores be default the length of the array. If the array is a result of a multicast method invocation, its length will be automatically evaluated to the group size. Otherwise, it is automatically evaluated to the size of the array specified in the data type. This is crucial for the code generation and model-checking.
+ 
 \subsection{Edit State Machines}
 You can use Palette of the State Machine Diagrams to add transitions and states. You can also directly edit labels of states and transitions. To follow our example you can first add states and transitions to your State Machine Diagram as illustrated below.
 
@@ -437,7 +439,11 @@ The behavior of is specified on state machine transition labels. In order to edi
 
 <Assign> ::= <Variable> ':='  <Expr> \alt <Variable> ':=' <MCall>
 
-<Expr> ::=  <Variable> \alt <Constant> \alt  <Expr> <Bop> <Expr> \alt '('<Expr>')'
+<Expr> ::=  <Variable> \alt 
+			<Constant> \alt  
+			<Expr> <Bop> <Expr> \alt 
+			'('<Expr>')' \alt
+			<Array\_element>
 
 <MCall> ::= ID'.'ID '( )' \alt 
 	 ID'.'ID '(' <Args> ')' \alt 
@@ -456,6 +462,7 @@ The behavior of is specified on state machine transition labels. In order to edi
 
 <Return> ::= 'return' <Variable> \alt 'return' <Constant> \alt  'return'
 
+<Array\_element> ::= ID'['<Expression>']'
 \end{grammar}
 
 The final version of sumUp state machine of our example is given on the figure below.
@@ -465,6 +472,17 @@ The final version of sumUp state machine of our example is given on the figure b
     % \caption{VCE Project Structure}
      \label{fig:vce-proj}
      }
+
+\texttt{LIMITATIONS.} The current version of the plug-ins dealing with code generation and model-checking do not support:
+
+\begin{itemize}
+\item
+Several method calls on the same transition;
+\item
+Any kind of expressions except from variables as arguments of method calls.
+\end{itemize}
+
+\texttt{NOTE!.} For the model-checking, every state machine should have a "return" statement even if it describes a void method.
 
 \section{Diagram Validation}
 Before using the diagrams, and in particular before generating ADL files, it is mandatory to check the structural coherency of the semantics. In order to do this open a VCE Component Diagram and select \textbf{Diagram $\rightarrow$ Validate} in the menu. 
@@ -560,7 +578,7 @@ a .exp file per each pNet;
 run.sh script that calls .svl scripts and flac-and-minimize script on all .fcr files.
 \end{itemize}
 
-\textbf{Note! } The current version of VerCors generates data only from a composite that contains several primitives in its content. Membrane, group interfaces, non-functional interfaces and composite components inside a content are not supported in the current version.
+%\textbf{Note! } The current version of VerCors generates data only from a composite that contains several primitives in its content. Membrane, group interfaces, non-functional interfaces and composite components inside a content are not supported in the current version.
 
 To generate a pNet of a composite you need to:
 \begin{enumerate}
@@ -574,6 +592,14 @@ Specify the queue size of the root component as well as its sub-components.
 Specify the communications that you do not want to observe during the model-checking.
 \end{enumerate}
 
-\textbf{Node! } In current version does not perform any type-checking of your model.
+\texttt{LIMITATIONS } The current version does not generate the pNets of the interceptors, architectures with gathercast interfaces or external multicast interfaces.
+
+\section{Reconfiguration}
+
+With VerCors, the user can design, generate, and verify a component system with reconfigurable multicast interfaces.
+
+\subsection{Graphical design}
+
+\TODO{copy-paste from the thesis}
 
 \end{document}
