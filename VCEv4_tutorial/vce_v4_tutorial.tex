@@ -30,7 +30,7 @@
 
 \vspace*{2cm}
 \begin{center}
-	{\huge \textbf{VCE v4 Tutorial}} \vspace*{1cm}
+	{\huge \textbf{VerCors v4 Tutorial}} \vspace*{1cm}
 \\
     {\large INRIA – Sophia-Antipolis } \medskip \\
 \end{center}
@@ -41,14 +41,15 @@
 \begin{minipage}[b]{0.5\textwidth}
     \vspace*{1.3cm}
     \begin{center}
-        {\large July 2015}
+        {\large September 2016}
     \end{center}
         \begin{center}
-        {\large oleksandra.kulankhina@inria.fr}
+        {\large oleksandra.kulankhina@gmail.com \\
+        \large eric.madelaine@inria.fr}
     \end{center}
      \vspace*{1cm}
         \begin{center}
-        {\large VCE version 4.0.2}
+        {\large VCE version 4.1.1}
     \end{center}
 \end{minipage}%
 \end{center}
@@ -62,10 +63,10 @@
 
 \section{Introduction}\label{sec:intro}
 VerCors is a platform for the specification, analysis, verification and validation of the GCM-
-based applications architecture and behavior. It contains a set of tools including VCE v.4. VCE v.4 is a graphical designer for the GCM architecture and Components behavior specification. It is distributed as a set of Eclipse plugins.
+based applications architecture and behaviour. It contains a set of tools including VCE v.4. VCE v.4 is a graphical designer for the GCM architecture and Components behaviour specification. It is distributed as a set of Eclipse plug-ins.
 
 This guide explains the basic functionality of VCE v.4. 
-It provides step by step instructions for creating a simple example of a Component model using the VCE editors, including all facets of this model: classes and interfaces, types, architecture, and behaviors. It also explains how to validate the static semantics properties of the Component models, how to produce (partial) executable code in GCM/ProActive and how to produce models that can be verified be CADP\footnote{http://cadp/} model-checker.
+It provides step by step instructions for creating a simple example of a Component model using the VCE editors, including all facets of this model: classes and interfaces, types, architecture, and behaviours. It also explains how to validate the static semantics properties of the Component models, how to produce (partial) executable code in GCM/ProActive and how to produce models that can be verified be CADP\footnote{http://cadp/} model-checker.
 
 \textbf{Additional information:}
 
@@ -80,12 +81,12 @@ Sirius user manual: http://www.eclipse.org/sirius/doc/user/Sirius\%20User\%20Man
 \subsection{VCEv4 Overview}
 As in all Eclipse-based environments, all models and diagrams related to a given application are grouped in a Project. 
 
-A \textbf{VCE Modeling project} contains models (\textbf{VCE} models for the architecture description, \textbf{UML} classes and interfaces, UML State Machines for behavior description, and \textbf{VceTypes} models for types definition). A VCE Modeling project also includes  diagrams (VCE Components diagrams, UML classes, interfaces, and state-machine diagrams and a VCE Types diagram) which illustrate the elements of the models. A VCE model has links to UML models. In particular, a GCM interface refers to a UML Interface, a GCM Primitive component refers to a UML Class. The UML Operations and State Machines use VCE Types for the typing of the arguments and return values. 
+A \textbf{VCE Modeling project} contains models (\textbf{VCE} models for the architecture description, \textbf{UML} classes and interfaces, UML State Machines for behaviour description, and \textbf{VceTypes} models for types definition). A VCE Modeling project also includes  diagrams (VCE Components diagrams, UML classes, interfaces, and state-machine diagrams and a VCE Types diagram) which illustrate the elements of the models. A VCE model has links to UML models. In particular, a GCM interface refers to a UML Interface, a GCM Primitive component refers to a UML Class. The UML Operations and State Machines use VCE Types for the typing of the arguments and return values. 
 
 VCEv4 mainly contains three modules:
 \begin{itemize}
 \item
-Graphical editors for architecture and behavior design;
+Graphical editors the design of component architecture and behaviour;
 \item
 A module translating graphical models into Executable Java/Proactive code;
 \item
@@ -101,7 +102,11 @@ You will often need to edit some parameters of your model in Eclipse \textbf{Pro
 Click on \textbf{Window} on the top-bar menu of Eclipse (Obeo) and select \textbf{Show view $\rightarrow$ Properties}.
 \end{enumerate}
 
-\section{Architecture and Behavior graphical specification}\label{sec:graph}
+\subsection{Installation}
+
+In order to install VerCors, the user should,first, install Obeo Designer. For this, it is necessary to download and unzip the Obeo Designer Community 8.x version from https://www.obeodesigner.com/en/download. Then, the user can use the Eclipse software installation manager\footnote{http://help.eclipse.org/luna/index.jsp?topic=/org.eclipse.platform.doc.user/tasks/tasks-124.htm} to install VCEv4 on Obeo Designer from VCEv4 repository: http://vercors.gforge.inria.fr/repository/.
+
+\section{Architecture and Behaviour graphical specification}\label{sec:graph}
 In this section we explain how to:
 \begin{itemize}
 \item
@@ -127,7 +132,7 @@ We will illustrate the use of graphical editors with an example described in the
 
 \subsection{Example Overview}
 
-A figure below illustrates the example. This is a very simple VCE Component diagram containing one primitive component \textbf{Prim1} with one server and one client GCM interface (\textbf{S1} and \textbf{C1}). Each GCM interface is connected to a UML interface (\textbf{Interface1} and \textbf{Interface2} correspondingly). Interface1 has an operation \textbf{sumUp} that can be served by the component, Interface2 has the list of the operations that can be called by the component. A UML class \textbf{Class1} is attached to the component. It has one method implementing the operation of the server interface (\textbf{sumUp()}), one attribute \textbf{last\_sum} and two methods \textbf{get\_last\_sum()} and \textbf{set\_last\_sum()} to access the value of the attribute. The behavior of the sumUp  method is illustrated on a UML State Machine sumUp. The default value of attribute \textbf{last\_sum} is given in a green box and is equal to~0.
+A figure below illustrates the example. This is a very simple VCE Component diagram containing one primitive component \textbf{Prim1} with one server and one client GCM interface (\textbf{S1} and \textbf{C1}). Each GCM interface is connected to a UML interface (\textbf{Interface1} and \textbf{Interface2} correspondingly). Interface1 has an operation \textbf{sumUp} that can be served by the component, Interface2 has the list of the operations that can be called by the component. A UML class \textbf{Class1} is attached to the component. It has one method implementing the operation of the server interface (\textbf{sumUp()}), one attribute \textbf{last\_sum} and two methods \textbf{get\_last\_sum()} and \textbf{set\_last\_sum()} to access the value of the attribute. The behaviour of the sumUp  method is illustrated on a UML State Machine sumUp. The default value of attribute \textbf{last\_sum} is given in a green box and is equal to~0.
 
 %\begin{figure}
      \centerline{
@@ -318,7 +323,7 @@ An attribute (or  property) of a class can be specified using a tool \textbf{Pro
 We should distinguish three kinds of UML Class Operations:
 \begin{itemize}
 \item
-\textbf{Server operations}. These are the operations that will be accessed from outside of a component. They implement the behavior of server interfaces operations. In order to establish the relation between a server operation of a class and the implemented method of an interface you need to do the following. (1) go to the Properties view of your class operation and open \textbf{Semantic} tab. (2) in the field \textbf{Redefined operation} select the implemented operation of an interface.
+\textbf{Server operations}. These are the operations that will be accessed from outside of a component. They implement the behaviour of server interfaces operations. In order to establish the relation between a server operation of a class and the implemented method of an interface you need to do the following. (1) go to the Properties view of your class operation and open \textbf{Semantic} tab. (2) in the field \textbf{Redefined operation} select the implemented operation of an interface.
 \item
 \textbf{Local operations}. These are class operations that are used for local computations and are not accessible from outside of the component.
 \item
@@ -379,11 +384,11 @@ An example of the resulting diagram is given on the figure below.
      
 \subsection{Create and attach a State Machine to a UML Operation}
 
-State Machines define the behavior of operations of UML classes. In order to specify a State Machine of an operation you need to:
+State Machines define the behaviour of operations of UML classes. In order to specify a State Machine of an operation you need to:
 
 \begin{enumerate}
 \item
-Open a .uml file (UML model) in a standard EMF editor and go to the UML Class which operation behavior you want to specify. Right-click on the class and select \textbf{New Child $\rightarrow$ Classifier Behavior $\rightarrow$ State Machine}. This will create an instance of the State Machine. You can specify its name in the Properties view. An example is given below.
+Open a .uml file (UML model) in a standard EMF editor and go to the UML Class which operation behaviour you want to specify. Right-click on the class and select \textbf{New Child $\rightarrow$ Owned Behavior $\rightarrow$ State Machine}. This will create an instance of the State Machine. You can specify its name in the Properties view. An example is given below.
 
      \centerline{
      \includegraphics[width=14cm]{draws/sm-creation.png}
@@ -419,6 +424,7 @@ If you want to use local variables on your State Machine, you should declare the
  Th input parameters of the operation modelled by the state machine should be also included in the list of local variables. Moreover, for each local variable of array type with a name \texttt{name} there can be declared a local variable with a name \texttt{name\_length} which stores be default the length of the array. If the array is a result of a multicast method invocation, its length will be automatically evaluated to the group size. Otherwise, it is automatically evaluated to the size of the array specified in the data type. This is crucial for the code generation and model-checking.
  
 \subsection{Edit State Machines}
+\label{sm}
 You can use Palette of the State Machine Diagrams to add transitions and states. You can also directly edit labels of states and transitions. To follow our example you can first add states and transitions to your State Machine Diagram as illustrated below.
 
      \centerline{
@@ -427,7 +433,7 @@ You can use Palette of the State Machine Diagrams to add transitions and states.
      \label{fig:vce-proj}
      }
      
-The behavior of is specified on state machine transition labels. In order to edit a label you need to click on it once in order to select it. Then, you can click on it second time to edit it. From a state machine you have access to the local methods of the class owning the state machine , to the methods of client interfaces and to the local variables of the state machine. The attributes of the class can be accessed only through get and set methods. The labels text should correspond to the grammar given below.
+The behaviour of is specified on state machine transition labels. In order to edit a label you need to click on it once in order to select it. Then, you can click on it second time to edit it. From a state machine you have access to the local methods of the class owning the state machine , to the methods of client interfaces and to the local variables of the state machine. The attributes of the class can be accessed only through get and set methods. The labels text should correspond to the grammar given below.
 
 \begin{grammar}
 
@@ -450,13 +456,15 @@ The behavior of is specified on state machine transition labels. In order to edi
 	 'this.'ID '( )' \alt 
 	'this.'ID  '(' <Args> ')'
 	 
-<Args> ::=  <Constant> \alt> <Variable> \alt <Args> ',' <Args>
+<Args> ::=  <Constant> \alt <Variable> \alt <Args> ',' <Args>
 
-<Constant> ::= NUM \alt <Boolean_constant>
+<Constant> ::= NUM \alt <Boolean_constant> \alt <Enum_constant>
 
 <Bop> ::=  '\&\&' \alt  '||'  \alt '+' \alt '-' \alt '*' \alt '/' \alt '=' \alt '$>$=' \alt '$>$' \alt '\textless'  \alt '\textless='
 
 <Boolean_constant> ::= 'true' \alt 'false'
+
+<Enum_constant> ::= ID'.'ID
 
 <Guard_Expr> ::= <Expr>
 
@@ -482,7 +490,7 @@ Several method calls on the same transition;
 Any kind of expressions except from variables as arguments of method calls.
 \end{itemize}
 
-\texttt{NOTE!.} For the model-checking, every state machine should have a "return" statement even if it describes a void method.
+\texttt{NOTE!} For the model-checking, every state machine should have a "return" statement even if it describes a void method.
 
 \section{Diagram Validation}
 Before using the diagrams, and in particular before generating ADL files, it is mandatory to check the structural coherency of the semantics. In order to do this open a VCE Component Diagram and select \textbf{Diagram $\rightarrow$ Validate} in the menu. 
@@ -564,7 +572,7 @@ Hit Next.
 
 \section{Generation of input for CADP}
 
-Graphically specified models are translated by VerCors into low-level models encoding the behavior of a GCM applications. PNets and pLTS are used to encode the behavior as described here\footnote{https://hal.inria.fr/hal-00761073}.
+Graphically specified models are translated by VerCors into low-level models encoding the behaviour of a GCM applications. PNets and pLTS are used to encode the behaviour as described here\footnote{https://hal.inria.fr/hal-00761073}.
 
 In order to assist model-checking of the specified models, VerCors generates the following files:
 \begin{itemize}
@@ -597,9 +605,31 @@ Specify the communications that you do not want to observe during the model-chec
 \section{Reconfiguration}
 
 With VerCors, the user can design, generate, and verify a component system with reconfigurable multicast interfaces.
+A multicast interface (or a \textit{multicast} for short) is a client interface which can send several requests to different targets simultaneously, and then gather the results. Moreover, the group of target interfaces can be reconfigured at run-time, i.e. the bindings going from a multicast interface can be dynamically added and removed. 
 
 \subsection{Graphical design}
 
-\TODO{copy-paste from the thesis}
+In order to create a multicast interface, the user should create a singleton interface using the \textbf{Interface} tool and then change the \texttt{cardinality} of the interface to \texttt{collective} and the \texttt{role} to \texttt{client} in the \textbf{Properties view}.
+
+The figure below shows an example of a composite with an external multicast~\texttt{Mcast-ext} and an internal multicast~\texttt{MCast-int}. By editing the labels of the bindings, the user should assign indices to the bindings going from a multicast interface. This is needed in order to refer to them while modelling the reconfiguration of the  system. The indices should go from 0 to N where \texttt{N} is the number of bindings going from the interface - 1. In order to analyse application reconfiguration, the user should also model bindings which do not exist when the modelled application is launched but can appear during system execution, e.g. the dashed binding \texttt{3} going from \texttt{Mcast-int} to \texttt{S1} of \texttt{SubComp3}. This can be configured by changing the value of the \texttt{isActive} property of a binding in the \textbf{Properties view}.
+
+     \centerline{
+    \includegraphics[width=8cm]{draws/mcast-compos-vce.jpg}
+    % \caption{VCE Project Structure}
+     }
+
+The internal interfaces of a composite component can be reconfigured by the non-functional components located in its membrane. In order to specify such kind of reconfiguration the user should:
+
+\begin{enumerate}
+\item
+Create an enumeration type which includes the name of the reconfigured interface as an enumeration literal
+\item
+On the transition of a state machine of a component triggering the reconfiguration, the user should use a specific statement corresponding to the reconfiguration instruction.
+The statement should be of the form \texttt{parent.bind(<enum\_literal>, <binding\_index>)} where \texttt{enum\_literal} is the enumeration literal corresponding to the reconfigured interface, and \texttt{binding\_index} is the index of the reconfigured binding. The \texttt{unbind} instruction can be defined in a similar way.
+\end{enumerate}
+
+For instance, the following instruction corresponds to binding the binding number \texttt{2} of our example: \texttt{parent.bind(Interfaces.Mcast-int, 2)}. An enumeration type with the name \texttt{Interfaces} and a literal \texttt{Mcast-int} should be defined by the user. In the future versions such enumerations will be generated automatically.
+
+VerCors generates pNets and Java code for the models with such kind of reconfiguration.
 
 \end{document}
